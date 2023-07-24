@@ -21,17 +21,17 @@ const primaryStyles = css`
 const disabledStyles = css`
   color: ${COLORS.secondaryText};
   border: 1px solid ${COLORS.border};
-  background: ${COLORS.lightGray};
+  background: ${COLORS.icon};
   cursor: not-allowed;
 
   &:hover {
     color: ${COLORS.secondaryText};
-    background: ${COLORS.gray};
+    background: ${COLORS.activeIcon};
   }
 `;
 
 const secondaryStyles = css`
-  color: ${COLORS.white};
+  color: ${COLORS.foreground};
   background: ${COLORS.secondary};
 
   &:hover {

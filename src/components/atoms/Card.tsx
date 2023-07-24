@@ -15,7 +15,7 @@ interface styleProps {
 const hoverStyles = css<styleProps>`
   transition: all 500ms ease;
   &:hover {
-    background-color: ${COLORS.primary3};
+    background-color: ${COLORS.primary};
   }
 `;
 
@@ -32,7 +32,7 @@ const Container = styled.div<styleProps>`
   width: ${(p) => p.width || "20rem"};
   min-width: 20rem;
   height: ${(p) => p.height || "30rem"};
-  background-color: ${(p) => (p.secondary ? COLORS.gray : "#fff")};
+  background-color: ${(p) => (p.secondary ? COLORS.disabled : "#fff")};
   box-shadow: ${SHADOW.normal};
   ${(p) => p.flexDir && flexStyles}
   padding: 3rem 2rem;

@@ -11,12 +11,12 @@ const primaryStyles = css`
 
   &:hover {
     transform: scale(1.01);
-    background-color: ${COLORS.primary2};
+    background-color: ${COLORS.primary};
   }
 `;
 
 const secondaryStyles = css`
-  color: ${COLORS.white};
+  color: ${COLORS.foreground};
   background: ${COLORS.secondary};
 
   &:hover {
@@ -27,13 +27,13 @@ const secondaryStyles = css`
 
 const outlineStyles = css`
   color: ${COLORS.secondary};
-  background: ${COLORS.white};
+  background: ${COLORS.foreground};
   border: 3px solid ${COLORS.secondary};
   box-shadow: none;
 
   &:hover {
     background: ${COLORS.secondary};
-    color: ${COLORS.white};
+    color: ${COLORS.foreground};
   }
 `;
 

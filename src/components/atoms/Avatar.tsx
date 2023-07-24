@@ -7,7 +7,6 @@ import ProfileImage from "../../images/optimized/profile.jpeg";
 import MelissaImage from "../../images/optimized/melissa_pfp.jpg";
 import AliImage from "../../images/optimized/ali.png";
 import styled from "styled-components";
-import { FaBreadSlice } from "react-icons/fa";
 
 interface StyleProps {
   size?: string | number;

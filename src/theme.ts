@@ -7,6 +7,8 @@ const palette = {
 	aqua: '#04A777',
 	brown: '#FB8B24',
 
+	primYellow: '#EFCB68',
+
 	lightPink: '#f4cdd5',
 	lightBlue: '#e7f3fd',
 
@@ -15,7 +17,7 @@ const palette = {
 	dimGray: '#666666',
 	charcoal: '#3C474B',
 
-	smokyBlack: '#161314',
+	smokyBlack: '#0A0909',
 	richBlack: '#0B090A',
 	offBlack: '#211C1E',
 	pureBlack: '#000',
@@ -43,44 +45,54 @@ const palette = {
 	// white: '#F0F2F3',
 };
 
-export const theme = {
-	colors: {
-		//text
-		primaryText: palette.offWhite,
-		secondaryText: palette.gray,
-		buttonText: palette.white,
-		buttonTextBlack: palette.black,
-		//primary / secondary
-		primary: palette.pink,
-		primarySoft: palette.lightPink,
-		secondary: palette.blue,
-		secondarySoft: palette.lightBlue,
-		tertiary: palette.aqua,
-		//status colors
-		success: palette.green,
-		successSoft: palette.lightGreen,
-		warning: palette.yellow,
-		warningSoft: palette.lightYellow,
-		error: palette.red,
-		errorSoft: palette.lightRed,
-		disabled: palette.gray,
-		//component colors
-		icon: palette.gray,
-		activeIcon: palette.offBlack,
-		background: palette.smokyBlack,
-		foreground: palette.offWhite,
-		primaryCardBackground: palette.white,
-		secondaryCardBackground: palette.offBlack,
-		border: palette.lightGray,
-		shadow: palette.black,
-	},
-	spacing: {
-		none: 0,
-		xs: 4,
-		s: 8,
-		m: 16,
-		l: 24,
-		xl: 40,
-		xxl: 60,
-	},
+export const COLORS = {
+	//text
+	primaryText: palette.primYellow,
+	secondaryText: palette.offWhite,
+	buttonText: palette.white,
+	buttonTextBlack: palette.black,
+
+	//primary / secondary
+	primary: palette.primYellow,
+	primarySoft: palette.lightPink,
+	secondary: palette.blue,
+	secondarySoft: palette.lightBlue,
+	tertiary: palette.aqua,
+
+	//status colors
+	success: palette.green,
+	successSoft: palette.lightGreen,
+	warning: palette.yellow,
+	warningSoft: palette.lightYellow,
+	error: palette.red,
+	errorSoft: palette.lightRed,
+	disabled: palette.gray,
+
+	//component colors
+	icon: palette.gray,
+	activeIcon: palette.offBlack,
+	background: palette.smokyBlack,
+	foreground: palette.offWhite,
+	primaryCardBackground: palette.white,
+	secondaryCardBackground: palette.offBlack,
+	border: palette.lightGray,
+	shadow: palette.black,
 };
+
+export const SHADOW = {
+	normal: `2px 4px 16px 0 rgba(0, 0, 0, 0.08);`,
+};
+
+export const SIZES = {
+	lengthSm1: '0.25rem',
+	lengthSm2: '0.375rem',
+	lengthSm3: '0.5rem',
+	lengthMd1: '1rem',
+	lengthMd2: '1.25rem',
+	lengthMd3: '1.5rem',
+	lengthLg1: '2rem',
+	lengthLg2: '3rem',
+	lengthLg3: '4rem',
+};
+
+export const breakpoint = 767;
