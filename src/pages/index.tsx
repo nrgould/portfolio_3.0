@@ -6,8 +6,10 @@ import Helmet from 'react-helmet';
 import Hero from '../components/organisms/Hero';
 import About from '../components/organisms/About';
 import ImageGrid from '../components/organisms/ImageGrid';
+import PortfolioImages from '../components/organisms/PortfolioImages';
 
 const IndexPage = ({ data }) => {
+	console.log(data);
 	return (
 		<Layout fullWidth>
 			<Helmet htmlAttributes={{ lang: 'en' }}>
@@ -31,18 +33,27 @@ const IndexPage = ({ data }) => {
 			</Helmet>
 			{/* <Hero /> */}
 			{/* <About /> */}
-			<ImageGrid data={data} />
+			<PortfolioImages data={data} />
 		</Layout>
 	);
 };
 
 export const query = graphql`
 	query HomePageQuery {
-		allFile(filter: { sourceInstanceName: { eq: "images" } }, limit: 18) {
+		portfolioPhotos: allFile(
+			filter: {
+				extension: { regex: "/(jpg)|(png)|(jpeg)/" }
+				relativeDirectory: { eq: "portfolio_images" }
+			}
+			limit: 20
+			sort: { base: ASC }
+		) {
 			edges {
 				node {
+					base
+					id
 					childImageSharp {
-						fliud {
+						fluid {
 							aspectRatio
 						}
 						gatsbyImageData(
@@ -63,3 +74,22 @@ export const query = graphql`
 export default IndexPage;
 
 export const Head: HeadFC = () => <title>Home Page</title>;
+
+// query HomePageQuery {
+// 	allFile(filter: { sourceInstanceName: { eq: "images" } }, limit: 18) {
+// 		edges {
+// 			node {
+// 				childImageSharp {
+// 					gatsbyImageData(
+// 						layout: CONSTRAINED
+// 						placeholder: BLURRED
+// 						transformOptions: {
+// 							fit: COVER
+// 							cropFocus: ATTENTION
+// 						}
+// 					)
+// 				}
+// 			}
+// 		}
+// 	}
+// }

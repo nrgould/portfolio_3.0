@@ -1,47 +1,26 @@
-import { COLORS, breakpoint } from '../../theme';
-import { SubTitle } from '../atoms/SubTitle';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { motion, useInView } from 'framer-motion';
 import GridImage from '../molecules/GridImage';
-
-const Container = styled.div`
-	background-color: ${COLORS.background};
-	width: 100vw;
-`;
+import { SubTitle } from '../atoms/SubTitle';
+import FlexRow from '../atoms/FlexRow';
 
 const GridContainer = styled(motion.div)`
 	width: 100vw;
-	/* padding: 1rem; */
-	display: grid;
-	/* grid-template-columns: 1fr 1fr; */
-	grid-template-columns: repeat(2, minmax(100px, 2fr));
-	grid-auto-rows: auto;
-	/* grid-template-rows: repeat(auto-fit, minmax(200px, 1fr)); */
-	/* grid-template-rows: minmax(200px, 2fr); */
-	/* grid-gap: 6px; */
+	column-count: 3;
+	column-gap: 0px;
+	line-height: 0;
+	padding: 0 1rem;
+
+	@media (max-width: 767px) {
+		column-count: 2;
+		padding: 0 0.5rem;
+	}
 `;
 
-const TextContainer = styled(motion.div)`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
 export default function ImageGrid({ data }) {
-	const [gridWidth, setGridWidth] = useState(2);
-	const { width, height }: any = useWindowDimensions();
-
 	const ref = useRef(null);
 	const inView = useInView(ref, { once: true });
-
-	useEffect(() => {
-		if (width > breakpoint) {
-			setGridWidth(3);
-		} else {
-			setGridWidth(2);
-		}
-	});
 
 	const variants = {
 		hidden: { opacity: 0 },
@@ -49,28 +28,30 @@ export default function ImageGrid({ data }) {
 			opacity: 1,
 			transition: {
 				staggerChildren: 0.07,
-				// when: 'beforeChildren',
 			},
 		},
 	};
 
-	//2 image wide grid on mobile, 3 images wide with padding on desktop
-	//even padding around images, around 4-8px
-	//each image has it's own staggered animation
-
 	return (
-		<Container>
-			<TextContainer>
-				<SubTitle>LIFESTYLE</SubTitle>
-			</TextContainer>
+		<>
+			{data.length < 1 ? (
+				<FlexRow
+					style={{ height: '50vh' }}
+					alignItems='center'
+					justifyContent='center'>
+					<SubTitle style={{ textAlign: 'center' }}>
+						Sorry, something went wrong.
+					</SubTitle>
+				</FlexRow>
+			) : null}
 			<GridContainer
 				ref={ref}
 				variants={variants}
 				animate={inView ? 'show' : 'hidden'}>
-				{data.allFile.edges.map((item, index) => {
-					return <GridImage key={index} item={item} />;
+				{data.map((image) => {
+					return <GridImage key={image.node.id} image={image} />;
 				})}
 			</GridContainer>
-		</Container>
+		</>
 	);
 }

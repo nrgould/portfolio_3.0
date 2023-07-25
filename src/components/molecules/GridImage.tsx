@@ -5,15 +5,17 @@ import { motion, useInView } from 'framer-motion';
 
 const GridImageContainer = styled(motion.div)`
 	width: 100%;
-	justify-self: center;
-	align-self: center;
+	flex-grow: 1;
+	padding: 1rem;
+
+	@media (max-width: 767px) {
+		padding: 0.5rem;
+	}
 `;
 
-export default function GridImage({ item }) {
+export default function GridImage({ image }) {
 	const ref = useRef(null);
 	let inView = useInView(ref, { once: true });
-
-	console.log(item);
 
 	const variants = {
 		hidden: { opacity: 0, y: 30, scaleX: 0.9 },
@@ -36,12 +38,13 @@ export default function GridImage({ item }) {
 		<GridImageContainer
 			ref={ref}
 			variants={variants}
-			whileInView={{ scaleX: 1, opacity: 1 }}
-			initial={{ scaleX: 0.9, opacity: 0 }}
+			whileInView={{ scaleX: 1, opacity: 1, y: 0 }}
+			initial={{ scaleX: 0.9, opacity: 0, y: 30 }}
+			exit={{ scaleX: 0.9, opacity: 0, y: 30 }}
 			whileTap={{ scale: 0.97 }}>
 			<GatsbyImage
-				image={item.node.childImageSharp.gatsbyImageData}
-				alt=''
+				image={image.node.childImageSharp.gatsbyImageData}
+				alt={image.node.base.split('_').join(' ')}
 			/>
 		</GridImageContainer>
 	);
