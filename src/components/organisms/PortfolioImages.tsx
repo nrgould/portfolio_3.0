@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import ImageGrid from './ImageGrid';
 import styled from 'styled-components';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { COLORS } from '../../theme';
-import { SubTitle } from '../atoms/SubTitle';
 import CategorySelector from '../molecules/CategorySelector';
+import AnimatedTitlePage from './AnimatedTitlePage';
 
 const Container = styled.div`
 	background-color: ${COLORS.background};
 	width: 100vw;
 	min-height: 100vh;
+	scroll-snap-align: start;
 `;
 
 export default function PortfolioImages({ data }) {
@@ -60,14 +61,17 @@ export default function PortfolioImages({ data }) {
 	}
 
 	return (
-		<Container>
-			<AnimatePresence mode='wait'>
-				<CategorySelector
-					category={category}
-					setCategory={setCategory}
-				/>
-				<ImageGrid data={handleCategory()} />
-			</AnimatePresence>
-		</Container>
+		<>
+			<AnimatedTitlePage text='PHOTOGRAPHY' />
+			<Container>
+				<AnimatePresence mode='wait'>
+					<CategorySelector
+						category={category}
+						setCategory={setCategory}
+					/>
+					<ImageGrid data={handleCategory()} />
+				</AnimatePresence>
+			</Container>
+		</>
 	);
 }

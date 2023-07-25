@@ -18,12 +18,11 @@ export default function GridImage({ image }) {
 	let inView = useInView(ref, { once: true });
 
 	const variants = {
-		hidden: { opacity: 0, y: 30, scaleX: 0.9 },
+		hidden: { opacity: 0, y: 30 },
 		show: inView
 			? {
 					opacity: 1,
 					y: 0,
-					scaleX: 1,
 					transition: {
 						type: 'spring',
 						damping: 20,
@@ -31,16 +30,17 @@ export default function GridImage({ image }) {
 						bounce: 0,
 					},
 			  }
-			: { opacity: 0, y: 30, scaleX: 0.9 },
+			: { opacity: 0, y: 30 },
 	};
 
 	return (
 		<GridImageContainer
 			ref={ref}
 			variants={variants}
-			whileInView={{ scaleX: 1, opacity: 1, y: 0 }}
-			initial={{ scaleX: 0.9, opacity: 0, y: 30 }}
-			exit={{ scaleX: 0.9, opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			initial={{ opacity: 0, y: 30 }}
+			// exit={{ scaleX: 0.9, opacity: 0, y: 30 }}
+			transition={{ duration: 0.2 }}
 			whileTap={{ scale: 0.97 }}>
 			<GatsbyImage
 				image={image.node.childImageSharp.gatsbyImageData}

@@ -15,6 +15,7 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	scroll-snap-align: start;
 `;
 
 const AvatarImage = styled(StaticImage);
@@ -23,28 +24,26 @@ export default function About() {
 	const { width, height }: any = useWindowDimensions();
 	return (
 		<>
-      <Container>
-        <StaticImage
-          src='../../images/photography/self portraits/R6II5047-Edit.jpg'
-          width={150}
-          height={150}
-          style={{ borderRadius: '50%' }}
-          alt='Portrait of Nicholas Gould'
-        />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.5,
-            ease: [0, 0.71, 0.2, 1.01],
-          }}>
-          <Title>ABOUT ME</Title>
-        </motion.div>
-      </Container>
-      <Container>
-        
-      </Container>
-    </>
+			<Container>
+				<StaticImage
+					src='../../images/self portraits/R6II5047-Edit.jpg'
+					width={150}
+					height={150}
+					style={{ borderRadius: '50%' }}
+					alt='Portrait of Nicholas Gould'
+				/>
+				<motion.div
+					initial={{ opacity: 0, scale: 0.5 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{
+						duration: 0.8,
+						delay: 0.5,
+						ease: [0, 0.71, 0.2, 1.01],
+					}}>
+					<Title>ABOUT ME</Title>
+				</motion.div>
+			</Container>
+			<Container></Container>
+		</>
 	);
 }

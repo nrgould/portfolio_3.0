@@ -7,6 +7,8 @@ const palette = {
 	aqua: '#04A777',
 	brown: '#FB8B24',
 
+	mint: '#E1EFE6',
+
 	primYellow: '#EFCB68',
 
 	lightPink: '#f4cdd5',
@@ -16,11 +18,13 @@ const palette = {
 	lightGray: '#dbdbdb',
 	dimGray: '#666666',
 	charcoal: '#3C474B',
+	placeholder: '#757575',
 
 	smokyBlack: '#0A0909',
 	richBlack: '#0B090A',
 	offBlack: '#211C1E',
 	pureBlack: '#000',
+	foregroundBlack: '#141414',
 
 	white: '#fff',
 	offWhite: '#f9f9f9',
@@ -52,10 +56,13 @@ export const COLORS = {
 	buttonText: palette.white,
 	buttonTextBlack: palette.black,
 
+	placeholderText: palette.placeholder,
+
 	//primary / secondary
 	primary: palette.primYellow,
 	primarySoft: palette.lightPink,
-	secondary: palette.blue,
+
+	secondary: palette.mint,
 	secondarySoft: palette.lightBlue,
 	tertiary: palette.aqua,
 
@@ -72,7 +79,7 @@ export const COLORS = {
 	icon: palette.gray,
 	activeIcon: palette.offBlack,
 	background: palette.smokyBlack,
-	foreground: palette.offWhite,
+	foreground: palette.foregroundBlack,
 	primaryCardBackground: palette.white,
 	secondaryCardBackground: palette.offBlack,
 	border: palette.lightGray,

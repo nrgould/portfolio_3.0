@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../theme';
@@ -37,7 +37,7 @@ const ListItem = styled(SubTitle)`
 	font-size: 1.5rem;
 
 	@media (max-width: 767px) {
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 	}
 `;
 
@@ -46,7 +46,7 @@ const Underline = styled(motion.div)`
 	bottom: -1px;
 	left: 0;
 	right: 0;
-	height: 1px;
+	height: 2px;
 	background: ${COLORS.primary};
 `;
 
@@ -60,10 +60,15 @@ export default function CategorySelector({ category, setCategory }) {
 					return (
 						<ListItem
 							as={motion.h3}
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: 0.2 }}
 							whileTap={{ scale: 0.97 }}
 							onClick={() => setCategory(cat)}>
 							{cat.toUpperCase()}
-							{cat === category ? <Underline /> : null}
+							{cat === category ? (
+								<Underline layoutId='underline' />
+							) : null}
 						</ListItem>
 					);
 				})}

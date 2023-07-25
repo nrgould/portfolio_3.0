@@ -7,14 +7,21 @@ interface Props {
 	children: JSX.Element | JSX.Element[];
 	fullWidth?: boolean;
 	bottomMargin?: boolean;
+	ref?: any;
 }
 
-export default function Layout({ children, bottomMargin, fullWidth }: Props) {
+export default function Layout({
+	children,
+	bottomMargin,
+	fullWidth,
+	ref,
+}: Props) {
 	const { width }: any = useWindowDimensions();
 	return (
 		<>
 			{/* {width > breakpoint ? <NavbarDesktop /> : <NavbarMobile />} */}
 			<Main
+				ref={ref}
 				style={{
 					width: fullWidth ? '100%' : '80%',
 					marginBottom: bottomMargin ? '5rem' : 0,

@@ -12,6 +12,7 @@ const ImageContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	display: grid;
+	scroll-snap-align: start;
 `;
 
 const TextContainer = styled(motion.div)`
@@ -35,7 +36,7 @@ export default function Hero() {
 		<ImageContainer ref={ref}>
 			<StaticImage
 				alt='portrait of Nicholas Gould in Copenhagen, Denmark'
-				src='../../images/photography/self portraits/R6II1876.jpg'
+				src='../../images/self portraits/R6II1876.jpg'
 				placeholder='blurred'
 				layout='fullWidth'
 				style={{

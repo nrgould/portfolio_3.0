@@ -5,11 +5,19 @@ import Layout from '../components/organisms/Layout';
 import Helmet from 'react-helmet';
 import Hero from '../components/organisms/Hero';
 import About from '../components/organisms/About';
-import ImageGrid from '../components/organisms/ImageGrid';
 import PortfolioImages from '../components/organisms/PortfolioImages';
+import styled from 'styled-components';
+import Contact from '../components/organisms/Contact';
+import Test from '../components/organisms/Test';
+
+const ScrollSnapContainer = styled.div`
+	height: 100vh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+`;
 
 const IndexPage = ({ data }) => {
-	console.log(data);
 	return (
 		<Layout fullWidth>
 			<Helmet htmlAttributes={{ lang: 'en' }}>
@@ -31,9 +39,13 @@ const IndexPage = ({ data }) => {
 					name='description'
 					content='Photographer based out of Raleigh, North Carolina.'></meta>
 			</Helmet>
-			{/* <Hero /> */}
-			{/* <About /> */}
-			<PortfolioImages data={data} />
+			<ScrollSnapContainer>
+				<Contact />
+				<Test />
+				<Hero />
+				<About />
+				<PortfolioImages data={data} />
+			</ScrollSnapContainer>
 		</Layout>
 	);
 };
