@@ -8,7 +8,7 @@ const StyledField = styled(Field)`
 	border-radius: 4px;
 	border: none;
 	/* border-bottom: 1px solid ${COLORS.border}; */
-	min-width: 15vw;
+	min-width: 25vw;
 	padding: 0.75rem 0.5rem;
 	/* box-shadow: ${SHADOW.normal}; */
 	box-sizing: border-box;
@@ -57,6 +57,8 @@ interface Props {
 	value: string;
 	margin?: boolean;
 	required?: boolean;
+	width?: string;
+	style?: object;
 }
 
 export default function TextInput({
@@ -68,17 +70,31 @@ export default function TextInput({
 	value,
 	margin,
 	required,
+	width,
+	style,
 }: Props) {
-	const { width } = useWindowDimensions();
+	const { width: viewWidth } = useWindowDimensions();
 	return (
 		<Container
 			style={{
-				width: width < breakpoint ? width / 1.3 : `calc(100% - 16px)`,
+				width:
+					viewWidth < breakpoint
+						? viewWidth / 1.3
+						: width
+						? width
+						: `100%`,
+				...style,
 			}}>
 			<StyledLabel>{label}</StyledLabel>
 			<StyledField
 				style={{
-					width: width < breakpoint ? width / 1.3 : '100%',
+					width:
+						viewWidth < breakpoint
+							? viewWidth / 1.3
+							: width
+							? width
+							: `100%`,
+					...style,
 				}}
 				name={name}
 				type='text'

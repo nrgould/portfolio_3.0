@@ -10,12 +10,7 @@ import TextArea from '../molecules/TextArea';
 import { FaArrowRight } from 'react-icons/fa';
 import { SubTitle } from '../atoms/SubTitle';
 import FlexRow from '../atoms/FlexRow';
-import {
-	motion,
-	useAnimation,
-	useAnimationControls,
-	useInView,
-} from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const encode = (data: any) => {
 	return Object.keys(data)
@@ -41,6 +36,10 @@ interface Props {
 }
 
 export default function ContactForm({ style }: Props) {
+	const ref = useRef(null);
+
+	const inView = useInView(ref, { once: true });
+
 	const [isSent, setIsSent] = useState(false);
 	const { width } = useWindowDimensions();
 
@@ -101,8 +100,9 @@ export default function ContactForm({ style }: Props) {
 	return (
 		<motion.div
 			variants={parentVariants}
-			animate='visible'
-			initial='hidden'>
+			animate={inView ? 'visible' : 'hidden'}
+			initial='hidden'
+			ref={ref}>
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
@@ -204,9 +204,7 @@ export default function ContactForm({ style }: Props) {
 									icon={
 										<FaArrowRight
 											color={
-												isSubmitting ||
-												!isValid ||
-												!dirty
+												isSubmitting || !isValid
 													? COLORS.secondaryText
 													: COLORS.buttonTextBlack
 											}

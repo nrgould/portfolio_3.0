@@ -7,6 +7,7 @@ import { breakpoint, COLORS, SHADOW } from '../../theme';
 const StyledTextArea = styled(Field)`
 	border-radius: 4px;
 	border: none;
+	min-width: 25vw;
 	background-color: ${COLORS.foreground};
 	color: ${COLORS.secondaryText};
 	padding: 0.75rem 1rem;
@@ -72,7 +73,9 @@ export default function TextArea({
 					width:
 						viewWidth < breakpoint
 							? viewWidth / 1.3
-							: `calc(100% - 16px)`,
+							: width
+							? width
+							: `100%`,
 					...style,
 				}}
 				name={name}

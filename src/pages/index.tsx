@@ -9,6 +9,7 @@ import PortfolioImages from '../components/organisms/PortfolioImages';
 import styled from 'styled-components';
 import Contact from '../components/organisms/Contact';
 import Test from '../components/organisms/Test';
+import Values from '../components/organisms/Values';
 
 const ScrollSnapContainer = styled.div`
 	height: 100vh;
@@ -40,11 +41,12 @@ const IndexPage = ({ data }) => {
 					content='Photographer based out of Raleigh, North Carolina.'></meta>
 			</Helmet>
 			<ScrollSnapContainer>
-				<Contact />
-				<Test />
 				<Hero />
+				<Test />
 				<About />
 				<PortfolioImages data={data} />
+				<Values />
+				<Contact />
 			</ScrollSnapContainer>
 		</Layout>
 	);

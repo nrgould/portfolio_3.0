@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { COLORS } from '../../theme';
 
 const Container = styled.div`
@@ -21,6 +21,14 @@ const Box = styled(motion.div)`
 `;
 
 export default function Test() {
+	const ref = useRef(null);
+
+	const inView = useInView(ref);
+
+	useEffect(() => {
+		console.log('Element is in view: ', inView);
+	}, [inView]);
+
 	const parentVariants = {
 		hidden: {
 			opacity: 0,
@@ -36,6 +44,14 @@ export default function Test() {
 				staggerChildren: 0.2, //apply stagger on the parent tag
 			},
 		},
+		exit: {
+			opacity: 0,
+			transition: {
+				duration: 0.5,
+				when: 'afterChildren', //use this instead of delay
+				staggerChildren: 0.2, //apply stagger on the parent tag
+			},
+		},
 	};
 	const childVariants = {
 		hidden: {
@@ -48,12 +64,18 @@ export default function Test() {
 			x: 0,
 			transition: { duration: 0.5 },
 		},
+		exit: {
+			x: -200,
+			opacity: 0,
+			transition: { duration: 0.5 },
+		},
 	};
 	return (
 		<Container>
 			<motion.div
+				ref={ref}
 				variants={parentVariants}
-				animate='visible'
+				animate={inView ? 'visible' : 'hidden'}
 				initial='hidden'>
 				<Box variants={childVariants} />
 				<Box variants={childVariants} />

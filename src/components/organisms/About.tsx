@@ -3,14 +3,13 @@ import { SubTitle } from '../atoms/SubTitle';
 import { Title } from '../atoms/Title';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { motion, useInView } from 'framer-motion';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Text } from '../atoms/Text';
 
 const Container = styled.div`
 	height: 100vh;
 	width: 100vw;
-	background-color: ${COLORS.background};
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -18,10 +17,18 @@ const Container = styled.div`
 	scroll-snap-align: start;
 `;
 
+const TextContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: auto;
+	align-items: flex-start;
+	justify-content: center;
+`;
+
 const AvatarImage = styled(StaticImage);
 
 export default function About() {
-	const { width, height }: any = useWindowDimensions();
 	return (
 		<>
 			<Container>
@@ -43,7 +50,17 @@ export default function About() {
 					<Title>ABOUT ME</Title>
 				</motion.div>
 			</Container>
-			<Container></Container>
+			<Container>
+				<TextContainer>
+					<Title>ABOUT ME</Title>
+					<Text style={{ margin: 0 }}>
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Deleniti exercitationem veritatis quibusdam rerum
+						magnam nostrum beatae dolore corporis molestiae
+						voluptatem?
+					</Text>
+				</TextContainer>
+			</Container>
 		</>
 	);
 }
