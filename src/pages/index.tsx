@@ -10,6 +10,13 @@ import styled from 'styled-components';
 import Contact from '../components/organisms/Contact';
 import Test from '../components/organisms/Test';
 import Values from '../components/organisms/Values';
+import {
+	motion,
+	useMotionValueEvent,
+	useScroll,
+	useSpring,
+} from 'framer-motion';
+import { COLORS } from '../theme';
 
 const ScrollSnapContainer = styled.div`
 	height: 100vh;
@@ -18,37 +25,64 @@ const ScrollSnapContainer = styled.div`
 	scroll-behavior: smooth;
 `;
 
+const ProgressBar = styled(motion.div)`
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 10px;
+	background: ${COLORS.primary};
+	transform-origin: 0%;
+`;
+
 const IndexPage = ({ data }) => {
+	// const ref = React.useRef(null);
+
+	// const { scrollYProgress } = useScroll({ target: ref });
+	// const scaleX = useSpring(scrollYProgress, {
+	// 	stiffness: 100,
+	// 	damping: 30,
+	// 	restDelta: 0.001,
+	// });
+
+	// useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+	// 	console.log('Page scroll: ', latest);
+	// });
+
 	return (
-		<Layout fullWidth>
-			<Helmet htmlAttributes={{ lang: 'en' }}>
-				<meta charSet='utf-8' />
-				<title>
-					Nicholas Gould | Brand Lifestyle Photographer & Filmmaker
-				</title>
-				<link
-					rel='canonical'
-					href='https://www.nicholasgouldphoto.com'
-				/>
-				<meta
-					name='viewport'
-					content='width=device-width, initial-scale=1'
-				/>
-				<meta name='theme-color' content='#fff533' />
-				<link rel='manifest' href='/manifest.json' />
-				<meta
-					name='description'
-					content='Photographer based out of Raleigh, North Carolina.'></meta>
-			</Helmet>
-			<ScrollSnapContainer>
-				<Hero />
-				<Test />
-				<About />
-				<PortfolioImages data={data} />
-				<Values />
-				<Contact />
-			</ScrollSnapContainer>
-		</Layout>
+		<>
+			<Layout fullWidth>
+				<Helmet htmlAttributes={{ lang: 'en' }}>
+					<meta charSet='utf-8' />
+					<title>
+						Nicholas Gould | Brand Lifestyle Photographer &
+						Filmmaker
+					</title>
+					<link
+						rel='canonical'
+						href='https://www.nicholasgouldphoto.com'
+					/>
+					<meta
+						name='viewport'
+						content='width=device-width, initial-scale=1'
+					/>
+					<meta name='theme-color' content='#fff533' />
+					<link rel='manifest' href='/manifest.json' />
+					<meta
+						name='description'
+						content='Photographer based out of Raleigh, North Carolina.'></meta>
+				</Helmet>
+				<ScrollSnapContainer>
+					<Hero />
+					{/* <Test /> */}
+					<About />
+					<PortfolioImages data={data} />
+					<Contact />
+					<Values />
+					{/* <ProgressBar style={{ scaleX }} /> */}
+				</ScrollSnapContainer>
+			</Layout>
+		</>
 	);
 };
 
@@ -57,9 +91,8 @@ export const query = graphql`
 		portfolioPhotos: allFile(
 			filter: {
 				extension: { regex: "/(jpg)|(png)|(jpeg)/" }
-				relativeDirectory: { eq: "portfolio_images" }
+				relativeDirectory: { eq: "optimized_images" }
 			}
-			limit: 20
 			sort: { base: ASC }
 		) {
 			edges {

@@ -59,6 +59,7 @@ export default function CategorySelector({ category, setCategory }) {
 				{categories.map((cat) => {
 					return (
 						<ListItem
+							key={cat}
 							as={motion.h3}
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}

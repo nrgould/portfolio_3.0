@@ -36,6 +36,12 @@ const StyledSubtitle = styled(SubTitle)`
 	}
 `;
 
+const StyledText = styled(Text)`
+	margin: 0;
+	font-size: 2rem;
+	text-align: center;
+`;
+
 export default function Values() {
 	return (
 		<>
@@ -48,9 +54,9 @@ export default function Values() {
 			<Container>
 				<TextContainer>
 					<Title>CREATIVE VISION</Title>
-					<Text style={{ margin: 0, fontSize: '2.5rem' }}>
+					<StyledText>
 						Find the Equilibrium between art and effectiveness
-					</Text>
+					</StyledText>
 				</TextContainer>
 			</Container>
 		</>

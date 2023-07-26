@@ -26,9 +26,30 @@ const TextContainer = styled.div`
 	justify-content: center;
 `;
 
+const StyledText = styled(Text)`
+	max-width: 50rem;
+`;
+
 const AvatarImage = styled(StaticImage);
 
 export default function About() {
+	const variants = {
+		hidden: {
+			opacity: 0,
+			y: 50,
+			transition: { duration: 0.5 },
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				delay: 0.2,
+				ease: [0, 0.71, 0.2, 1.01],
+			},
+		},
+	};
+
 	return (
 		<>
 			<Container>
@@ -39,26 +60,36 @@ export default function About() {
 					style={{ borderRadius: '50%' }}
 					alt='Portrait of Nicholas Gould'
 				/>
-				<motion.div
-					initial={{ opacity: 0, scale: 0.5 }}
-					animate={{ opacity: 1, scale: 1 }}
-					transition={{
-						duration: 0.8,
-						delay: 0.5,
-						ease: [0, 0.71, 0.2, 1.01],
-					}}>
-					<Title>ABOUT ME</Title>
-				</motion.div>
+
+				<Title
+					as={motion.h1}
+					variants={variants}
+					initial={'hidden'}
+					whileInView='visible'>
+					ABOUT ME
+				</Title>
 			</Container>
 			<Container>
 				<TextContainer>
-					<Title>ABOUT ME</Title>
-					<Text style={{ margin: 0 }}>
+					<Title
+						as={motion.h2}
+						whileInView={'visible'}
+						initial={'hidden'}
+						variants={variants}>
+						ABOUT ME
+					</Title>
+					<StyledText
+						style={{ margin: 0 }}
+						as={motion.p}
+						whileInView={'visible'}
+						initial={'hidden'}
+						variants={variants}
+						transition={{ delay: 0.5 }}>
 						Lorem ipsum dolor sit, amet consectetur adipisicing
 						elit. Deleniti exercitationem veritatis quibusdam rerum
 						magnam nostrum beatae dolore corporis molestiae
 						voluptatem?
-					</Text>
+					</StyledText>
 				</TextContainer>
 			</Container>
 		</>

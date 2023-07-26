@@ -65,6 +65,7 @@ export const StyledButton = styled.button<styleProps>`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	font-family: 'Josefin Sans';
 	justify-content: space-around ${(p) => p.primary && primaryStyles};
 	${(p) => p.secondary && secondaryStyles};
 	${(p) => p.disabled && disabledStyles};

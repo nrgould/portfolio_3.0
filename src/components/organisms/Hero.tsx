@@ -22,6 +22,28 @@ const TextContainer = styled(motion.div)`
 	justify-content: center;
 `;
 
+const StyledTitle = styled(Title)`
+	padding: 0;
+	margin: 0;
+	color: ${COLORS.primary};
+	font-size: 4rem;
+	text-align: center;
+	line-height: 4rem;
+	max-width: 80%;
+
+	@media (max-width: 767px) {
+		font-size: 2.5rem;
+		line-height: 3rem;
+	}
+`;
+const StyledSubTitle = styled(SubTitle)`
+	padding: 0;
+	margin: 0;
+	color: ${COLORS.secondary};
+	max-width: 80%;
+	text-align: center;
+`;
+
 export default function Hero() {
 	const ref = useRef(null);
 	const { width, height }: any = useWindowDimensions();
@@ -36,7 +58,7 @@ export default function Hero() {
 		<ImageContainer ref={ref}>
 			<StaticImage
 				alt='portrait of Nicholas Gould in Copenhagen, Denmark'
-				src='../../images/self portraits/R6II1876.jpg'
+				src='../../images/optimized_images/self_nicholas_in_front_of_zugspitze_sunset.jpg'
 				placeholder='blurred'
 				layout='fullWidth'
 				style={{
@@ -54,32 +76,29 @@ export default function Hero() {
 					placeItems: 'center',
 					display: 'grid',
 				}}>
-				<TextContainer
-					// variants={variants}
-					// animate={inView ? 'show' : 'hidden'}
-					initial={{ opacity: 0, scale: 0.5 }}
-					animate={{ opacity: 1, scale: 1 }}
-					transition={{
-						duration: 0.8,
-						delay: 0.5,
-						ease: [0, 0.71, 0.2, 1.01],
-					}}>
-					<Title
-						style={{
-							padding: 0,
-							margin: 0,
-							color: COLORS.primary,
+				<TextContainer>
+					<StyledTitle
+						as={motion.h1}
+						initial={{ opacity: 0, scale: 0.5, y: 30 }}
+						whileInView={{ opacity: 1, scale: 1, y: 0 }}
+						transition={{
+							duration: 0.8,
+							delay: 0.2,
+							ease: [0, 0.71, 0.2, 1.01],
 						}}>
 						NICHOLAS GOULD
-					</Title>
-					<SubTitle
-						style={{
-							padding: 0,
-							margin: 0,
-							color: COLORS.primary,
+					</StyledTitle>
+					<StyledSubTitle
+						as={motion.h2}
+						initial={{ opacity: 0, scale: 0.5, y: 30 }}
+						whileInView={{ opacity: 1, scale: 1, y: 0 }}
+						transition={{
+							duration: 0.8,
+							delay: 0.5,
+							ease: [0, 0.71, 0.2, 1.01],
 						}}>
-						Photographer & Filmmaker
-					</SubTitle>
+						Photographer & Filmmaker based in Raleigh, NC
+					</StyledSubTitle>
 				</TextContainer>
 			</div>
 		</ImageContainer>

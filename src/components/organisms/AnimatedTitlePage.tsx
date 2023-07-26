@@ -21,8 +21,19 @@ const TitleContainer = styled.div`
 	justify-content: center;
 `;
 
+const StyledTitle = styled(Title)`
+	font-size: 5rem;
+	line-height: 5rem;
+
+	@media (max-width: 767px) {
+		font-size: 2.8rem;
+	}
+`;
+
 export default function AnimatedTitlePage({ text }) {
-	const ref = useRef(null);
+	const ref = useRef();
+
+	console.log(ref);
 
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -36,11 +47,9 @@ export default function AnimatedTitlePage({ text }) {
 	const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 1.5]);
 
 	return (
-		<TitleContainer>
-			<Title
+		<TitleContainer ref={ref}>
+			<StyledTitle
 				aria-label={text}
-				style={{ fontSize: '2.8rem' }}
-				ref={ref}
 				role='heading'
 				as={motion.h1}
 				initial={{ opacity: 0, y: 30, scaleX: 0.75 }}
@@ -48,7 +57,7 @@ export default function AnimatedTitlePage({ text }) {
 				transition={{ duration: 0.6 }}
 				whileTap={{ scale: 0.97 }}>
 				{text}
-			</Title>
+			</StyledTitle>
 		</TitleContainer>
 	);
 }
