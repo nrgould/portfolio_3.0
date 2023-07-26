@@ -22,15 +22,13 @@ const TextContainer = styled.div`
 	flex-direction: column;
 	width: 80%;
 	margin: auto;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
 `;
 
 const StyledText = styled(Text)`
 	max-width: 50rem;
 `;
-
-const AvatarImage = styled(StaticImage);
 
 export default function About() {
 	const variants = {

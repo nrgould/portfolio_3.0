@@ -6,7 +6,8 @@ import { SubTitle } from '../atoms/SubTitle';
 import FlexRow from '../atoms/FlexRow';
 
 const GridContainer = styled(motion.div)`
-	width: 100vw;
+	width: 80vw;
+	margin: auto;
 	column-count: 3;
 	column-gap: 0px;
 	line-height: 0;
@@ -15,6 +16,7 @@ const GridContainer = styled(motion.div)`
 	@media (max-width: 767px) {
 		column-count: 2;
 		padding: 0 0.5rem;
+		width: 100vw;
 	}
 `;
 

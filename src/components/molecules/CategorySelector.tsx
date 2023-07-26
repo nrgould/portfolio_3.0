@@ -50,7 +50,7 @@ const Underline = styled(motion.div)`
 	background: ${COLORS.primary};
 `;
 
-const categories = ['LIFESTYLE', 'LANDSCAPE', 'PRODUCT', 'PORTRAIT'];
+const categories = ['LIFESTYLE', 'LANDSCAPE', 'PORTRAIT'];
 
 export default function CategorySelector({ category, setCategory }) {
 	return (

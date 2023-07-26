@@ -53,8 +53,6 @@ export default function PortfolioImages({ data }) {
 				return lifestyle;
 			case 'LANDSCAPE':
 				return landscapes;
-			case 'PRODUCT':
-				return products;
 			case 'PORTRAIT':
 				return portraits;
 		}

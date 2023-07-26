@@ -9,7 +9,7 @@ import { motion, useInView } from 'framer-motion';
 
 const ImageContainer = styled.div`
 	background-color: ${COLORS.background};
-	width: 100vw;
+	/* width: 100vw; */
 	height: 100vh;
 	display: grid;
 	scroll-snap-align: start;
@@ -58,16 +58,17 @@ export default function Hero() {
 		<ImageContainer ref={ref}>
 			<StaticImage
 				alt='portrait of Nicholas Gould in Copenhagen, Denmark'
-				src='../../images/optimized_images/self_nicholas_in_front_of_zugspitze_sunset.jpg'
-				placeholder='blurred'
+				src='../../images/R6II1876.jpg'
+				placeholder='dominantColor'
 				layout='fullWidth'
 				style={{
 					gridArea: '1/1',
-					maxWidth: width,
+					// maxWidth: width,
 					maxHeight: height,
 					opacity: '50%',
 				}}
 				aspectRatio={1}
+				formats={['auto', 'webp', 'avif']}
 			/>
 			<div
 				style={{
