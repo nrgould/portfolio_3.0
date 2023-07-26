@@ -1,11 +1,11 @@
 import { COLORS } from '../../theme';
 import { SubTitle } from '../atoms/SubTitle';
 import { Title } from '../atoms/Title';
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { motion, useInView } from 'framer-motion';
-import { StaticImage } from 'gatsby-plugin-image';
+import { motion } from 'framer-motion';
 import { Text } from '../atoms/Text';
+import { Link } from 'gatsby';
 
 const Container = styled.div`
 	height: 100vh;
@@ -42,20 +42,96 @@ const StyledText = styled(Text)`
 	text-align: center;
 `;
 
+const StyledLink = styled(Link)`
+	text-decoration: none;
+`;
+
 export default function Values() {
+	const variants = {
+		hidden: { opacity: 0, y: 30 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				type: 'spring',
+				damping: 20,
+				stiffness: 100,
+				bounce: 0,
+			},
+		},
+	};
+
 	return (
 		<>
 			<Container>
 				<Title>VALUES</Title>
-				<StyledSubtitle>CREATIVE VISION</StyledSubtitle>
-				<StyledSubtitle>MISSION-DRIVEN</StyledSubtitle>
-				<StyledSubtitle>EFFICIENCY</StyledSubtitle>
+				<StyledLink to={'#creative-vision'}>
+					<StyledSubtitle
+						as={motion.h2}
+						whileInView={'visible'}
+						whileHover={{ scale: 1.03 }}
+						initial={'hidden'}
+						variants={variants}>
+						CREATIVE VISION
+					</StyledSubtitle>
+				</StyledLink>
+				<StyledLink to={'#mission-driven'}>
+					<StyledSubtitle
+						as={motion.h2}
+						whileInView={'visible'}
+						whileHover={{ scale: 1.03 }}
+						initial={'hidden'}
+						variants={variants}>
+						MISSION-DRIVEN
+					</StyledSubtitle>
+				</StyledLink>
+				<StyledLink to={'#efficiency'}>
+					<StyledSubtitle
+						as={motion.h2}
+						whileInView={'visible'}
+						whileHover={{ scale: 1.03 }}
+						initial={'hidden'}
+						variants={variants}>
+						EFFICIENCY
+					</StyledSubtitle>
+				</StyledLink>
 			</Container>
-			<Container>
+			<Container id='creative-vision'>
 				<TextContainer>
 					<Title>CREATIVE VISION</Title>
-					<StyledText>
-						Find the Equilibrium between art and effectiveness
+					<StyledText
+						as={motion.p}
+						variants={variants}
+						whileInView={'visible'}
+						initial={'hidden'}>
+						Find the Equilibrium between artistic vision and
+						marketability
+					</StyledText>
+				</TextContainer>
+			</Container>
+			<Container id='mission-driven'>
+				<TextContainer>
+					<Title>MISSION-DRIVEN</Title>
+					<StyledText
+						as={motion.p}
+						variants={variants}
+						whileInView={'visible'}
+						initial={'hidden'}>
+						Work with people & brands that are passionate about
+						doing good
+					</StyledText>
+				</TextContainer>
+			</Container>
+			<Container id='efficiency'>
+				<TextContainer>
+					<Title>EFFICIENCY</Title>
+					<StyledText
+						as={motion.p}
+						variants={variants}
+						whileInView={'visible'}
+						initial={'hidden'}>
+						Artistic precision to deliver effective work in a timely
+						manner
 					</StyledText>
 				</TextContainer>
 			</Container>

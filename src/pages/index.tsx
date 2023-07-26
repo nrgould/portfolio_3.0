@@ -8,15 +8,8 @@ import About from '../components/organisms/About';
 import PortfolioImages from '../components/organisms/PortfolioImages';
 import styled from 'styled-components';
 import Contact from '../components/organisms/Contact';
-import Test from '../components/organisms/Test';
 import Values from '../components/organisms/Values';
-import {
-	motion,
-	useMotionValueEvent,
-	useScroll,
-	useSpring,
-} from 'framer-motion';
-import { COLORS } from '../theme';
+import Footer from '../components/organisms/Footer';
 
 const ScrollSnapContainer = styled.div`
 	height: 100vh;
@@ -25,15 +18,15 @@ const ScrollSnapContainer = styled.div`
 	scroll-behavior: smooth;
 `;
 
-const ProgressBar = styled(motion.div)`
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 10px;
-	background: ${COLORS.primary};
-	transform-origin: 0%;
-`;
+// const ProgressBar = styled(motion.div)`
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	right: 0;
+// 	height: 10px;
+// 	background: ${COLORS.primary};
+// 	transform-origin: 0%;
+// `;
 
 const IndexPage = ({ data }) => {
 	// const ref = React.useRef(null);
@@ -77,8 +70,9 @@ const IndexPage = ({ data }) => {
 					{/* <Test /> */}
 					<About />
 					<PortfolioImages data={data} />
-					<Contact />
 					<Values />
+					<Contact />
+					<Footer />
 					{/* <ProgressBar style={{ scaleX }} /> */}
 				</ScrollSnapContainer>
 			</Layout>

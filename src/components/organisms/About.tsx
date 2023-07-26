@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Text } from '../atoms/Text';
+import FlexColumn from '../atoms/FlexColumn';
 
 const Container = styled.div`
 	height: 100vh;
@@ -28,6 +29,11 @@ const TextContainer = styled.div`
 
 const StyledText = styled(Text)`
 	max-width: 50rem;
+	font-size: 1.5rem;
+
+	@media (max-width: 767px) {
+		font-size: 1.2rem;
+	}
 `;
 
 export default function About() {
@@ -51,44 +57,36 @@ export default function About() {
 	return (
 		<>
 			<Container>
-				<StaticImage
-					src='../../images/self portraits/R6II5047-Edit.jpg'
-					width={150}
-					height={150}
-					style={{ borderRadius: '50%' }}
-					alt='Portrait of Nicholas Gould'
-				/>
-
-				<Title
-					as={motion.h1}
-					variants={variants}
-					initial={'hidden'}
-					whileInView='visible'>
-					ABOUT ME
-				</Title>
-			</Container>
-			<Container>
-				<TextContainer>
-					<Title
-						as={motion.h2}
-						whileInView={'visible'}
-						initial={'hidden'}
-						variants={variants}>
-						ABOUT ME
-					</Title>
-					<StyledText
-						style={{ margin: 0 }}
-						as={motion.p}
-						whileInView={'visible'}
-						initial={'hidden'}
-						variants={variants}
-						transition={{ delay: 0.5 }}>
-						Lorem ipsum dolor sit, amet consectetur adipisicing
-						elit. Deleniti exercitationem veritatis quibusdam rerum
-						magnam nostrum beatae dolore corporis molestiae
-						voluptatem?
-					</StyledText>
-				</TextContainer>
+				<FlexColumn alignItems='center' justifyContent='center'>
+					<StaticImage
+						src='../../images/R6II9003.jpg'
+						width={200}
+						height={200}
+						style={{ borderRadius: '50%' }}
+						alt='Portrait of Nicholas Gould'
+					/>
+					<TextContainer>
+						<Title
+							as={motion.h2}
+							whileInView={'visible'}
+							initial={'hidden'}
+							variants={variants}>
+							ABOUT ME
+						</Title>
+						<StyledText
+							style={{ margin: 0 }}
+							as={motion.p}
+							whileInView={'visible'}
+							initial={'hidden'}
+							variants={variants}
+							transition={{ delay: 0.5 }}>
+							Lorem ipsum dolor sit, amet consectetur adipisicing
+							elit. Deleniti exercitationem veritatis quibusdam
+							rerum magnam nostrum beatae dolore corporis
+							molestiae voluptatem?
+						</StyledText>
+					</TextContainer>
+				</FlexColumn>
 			</Container>
 		</>
 	);

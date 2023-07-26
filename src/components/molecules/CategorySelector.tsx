@@ -65,6 +65,7 @@ export default function CategorySelector({ category, setCategory }) {
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.2 }}
 							whileTap={{ scale: 0.97 }}
+							whileHover={{ scale: 1.03 }}
 							onClick={() => setCategory(cat)}>
 							{cat.toUpperCase()}
 							{cat === category ? (

@@ -64,7 +64,6 @@ export const COLORS = {
 
 	secondary: palette.mint,
 	secondarySoft: palette.lightBlue,
-	tertiary: palette.aqua,
 
 	//status colors
 	success: palette.green,
@@ -80,10 +79,11 @@ export const COLORS = {
 	activeIcon: palette.offBlack,
 	background: palette.smokyBlack,
 	foreground: palette.foregroundBlack,
-	primaryCardBackground: palette.white,
-	secondaryCardBackground: palette.offBlack,
 	border: palette.lightGray,
 	shadow: palette.black,
+
+	
+	white: palette.white,
 };
 
 export const SHADOW = {

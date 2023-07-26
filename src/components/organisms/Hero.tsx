@@ -29,7 +29,7 @@ const StyledTitle = styled(Title)`
 	font-size: 4rem;
 	text-align: center;
 	line-height: 4rem;
-	max-width: 80%;
+	/* max-width: 80%; */
 
 	@media (max-width: 767px) {
 		font-size: 2.5rem;
@@ -39,7 +39,7 @@ const StyledTitle = styled(Title)`
 const StyledSubTitle = styled(SubTitle)`
 	padding: 0;
 	margin: 0;
-	color: ${COLORS.secondary};
+	color: ${COLORS.secondaryText};
 	max-width: 80%;
 	text-align: center;
 `;

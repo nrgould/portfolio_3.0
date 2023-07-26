@@ -39,6 +39,7 @@ export default function GridImage({ image }) {
 			variants={variants}
 			whileInView={{ opacity: 1, y: 0 }}
 			initial={{ opacity: 0, y: 30 }}
+			whileHover={{ scale: 1.03 }}
 			// exit={{ scaleX: 0.9, opacity: 0, y: 30 }}
 			transition={{ duration: 0.2 }}
 			whileTap={{ scale: 0.97 }}>

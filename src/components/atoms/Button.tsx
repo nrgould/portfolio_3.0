@@ -35,7 +35,7 @@ const secondaryStyles = css`
 	background: ${COLORS.secondary};
 
 	&:hover {
-		background: ${COLORS.secondarySoft};
+		background: ${COLORS.primary};
 		transform: scale(1.01);
 	}
 `;
