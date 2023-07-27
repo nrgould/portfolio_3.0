@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { breakpoint, COLORS, SHADOW } from '../../theme';
+import '@fontsource/josefin-sans';
 
 const StyledField = styled(Field)`
 	border-radius: 4px;
@@ -12,18 +13,19 @@ const StyledField = styled(Field)`
 	padding: 0.75rem 0.5rem;
 	/* box-shadow: ${SHADOW.normal}; */
 	box-sizing: border-box;
-	font-family: 'Josefin Sans';
+	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 500;
 	background-color: ${COLORS.foreground};
 	color: ${COLORS.secondaryText};
 	-webkit-appearance: none;
 	&::placeholder {
-		font-family: 'Josefin Sans';
+		font-family: 'Josefin Sans', sans-serif;
 		color: ${COLORS.placeholderText};
 	}
 `;
 
 const StyledLabel = styled.label`
+	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
 	font-size: 1rem;
 	margin-bottom: 0.3rem;
@@ -40,6 +42,7 @@ const Container = styled.div`
 `;
 
 export const ErrorMessage = styled.p`
+	font-family: 'Josefin Sans', sans-serif;
 	color: ${COLORS.error};
 	font-size: 0.8rem;
 	font-weight: 300;

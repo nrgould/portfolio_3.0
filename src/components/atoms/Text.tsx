@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import '@fontsource/josefin-sans';
 import { COLORS } from '../../theme';
 
 export const Text = styled.p`
-	font-family: 'Josefin Sans';
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 1rem;
 	color: ${COLORS.secondaryText};
 	line-height: 1.75;

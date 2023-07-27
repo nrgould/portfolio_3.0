@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import '@fontsource/josefin-sans';
 import { breakpoint, COLORS } from '../../theme';
 
 interface Props {
@@ -6,6 +7,7 @@ interface Props {
 }
 
 export const Title = styled.h1<Props>`
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: ${(p) => p.size ?? '2rem'};
 	color: ${COLORS.primaryText};
 	font-weight: 700;

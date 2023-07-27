@@ -1,17 +1,12 @@
 import { Title } from '../atoms/Title';
 import {
-	MotionValue,
 	motion,
-	useAnimation,
-	useInView,
-	useMotionValue,
 	useMotionValueEvent,
 	useScroll,
 	useTransform,
 } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { COLORS } from '../../theme';
 
 const TitleContainer = styled.div`
 	scroll-snap-align: start;
@@ -24,9 +19,11 @@ const TitleContainer = styled.div`
 const StyledTitle = styled(Title)`
 	font-size: 5rem;
 	line-height: 5rem;
+	letter-spacing: 16px;
 
 	@media (max-width: 767px) {
-		font-size: 2.8rem;
+		font-size: 2.5rem;
+		letter-spacing: 10px;
 	}
 `;
 

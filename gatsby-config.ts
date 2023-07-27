@@ -23,7 +23,7 @@ const config: GatsbyConfig = {
 				name: 'Nicholas Gould',
 				start_url: '/',
 				description: `
-Welcome to my world, where the art of lifestyle photography becomes a vessel for storytelling. I'm Nicholas Gould, a soul enamored by life's vibrant tapestry, a wanderer who seeks solace in the embrace of the great outdoors, a curious traveler with an insatiable thirst for exploration, a devoted coffee enthusiast, and above all, a passionate photographer. Through my lens, I capture moments that weave together the essence of human experiences, framed by the breathtaking landscapes and the intimate details of everyday life. Whether I'm sipping coffee in a bustling cafe, traversing distant lands in pursuit of new adventures, or simply reveling in the raw beauty of nature, photography is my faithful companion, immortalizing the laughter, the love, the fleeting moments that make life so extraordinary. Each frame tells a story, a snapshot of the joy, the emotions, and the boundless beauty that surrounds us. I invite you to join me on this visual journey, as we celebrate the art of living through the evocative art of lifestyle photography.`,
+I am a dedicated lifestyle photographer with a keen eye for detail and a passion for storytelling. Inspired by the beauty of the outdoors and fueled by coffee, I am on a mission to capture authentic moments that reflect the art of living and inspire awe. With a deep appreciation for nature and an innate ability to connect with people, I strive to create compelling visuals that resonate with audiences and evoke emotions. Let's collaborate to bring your vision to life through the art of photography.`,
 				icon: 'src/images/icon.png',
 				include_favicon: true,
 				background_color: '#0A0909',
@@ -33,6 +33,7 @@ Welcome to my world, where the art of lifestyle photography becomes a vessel for
 		'gatsby-plugin-image',
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
+		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {

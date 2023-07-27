@@ -18,36 +18,13 @@ const ScrollSnapContainer = styled.div`
 	scroll-behavior: smooth;
 `;
 
-// const ProgressBar = styled(motion.div)`
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
-// 	right: 0;
-// 	height: 10px;
-// 	background: ${COLORS.primary};
-// 	transform-origin: 0%;
-// `;
-
 const IndexPage = ({ data }) => {
-	// const ref = React.useRef(null);
-
-	// const { scrollYProgress } = useScroll({ target: ref });
-	// const scaleX = useSpring(scrollYProgress, {
-	// 	stiffness: 100,
-	// 	damping: 30,
-	// 	restDelta: 0.001,
-	// });
-
-	// useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-	// 	console.log('Page scroll: ', latest);
-	// });
-
 	return (
 		<>
 			<Layout fullWidth>
 				<Helmet htmlAttributes={{ lang: 'en' }}>
 					<meta charSet='utf-8' />
-					<title>
+					<title data-react-helmet='true'>
 						Nicholas Gould | Brand Lifestyle Photographer &
 						Filmmaker
 					</title>

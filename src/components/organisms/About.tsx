@@ -1,9 +1,7 @@
-import { COLORS } from '../../theme';
-import { SubTitle } from '../atoms/SubTitle';
 import { Title } from '../atoms/Title';
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Text } from '../atoms/Text';
 import FlexColumn from '../atoms/FlexColumn';
@@ -74,16 +72,23 @@ export default function About() {
 							ABOUT ME
 						</Title>
 						<StyledText
-							style={{ margin: 0 }}
+							style={{
+								margin: 0,
+								maxWidth: '50vw',
+								textAlign: 'center',
+							}}
 							as={motion.p}
 							whileInView={'visible'}
 							initial={'hidden'}
 							variants={variants}
 							transition={{ delay: 0.5 }}>
-							Lorem ipsum dolor sit, amet consectetur adipisicing
-							elit. Deleniti exercitationem veritatis quibusdam
-							rerum magnam nostrum beatae dolore corporis
-							molestiae voluptatem?
+							As a lifestyle photographer with a passion for the
+							outdoors, coffee, and traveling, I thrive on
+							capturing authentic moments that celebrate the
+							beauty of life. With a deep appreciation for nature
+							and an innate ability to connect with people, I
+							strive to create compelling visuals that resonate
+							with audiences and evoke emotions.
 						</StyledText>
 					</TextContainer>
 				</FlexColumn>

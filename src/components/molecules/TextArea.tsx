@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { breakpoint, COLORS, SHADOW } from '../../theme';
+import '@fontsource/josefin-sans';
 
 const StyledTextArea = styled(Field)`
 	border-radius: 4px;
@@ -16,13 +17,14 @@ const StyledTextArea = styled(Field)`
 	margin-bottom: 2rem;
 	resize: vertical;
 	&::placeholder {
-		font-family: 'Josefin Sans';
+		font-family: 'Josefin Sans', sans-serif;
 		color: ${COLORS.placeholderText};
 	}
-	font-family: 'Josefin Sans';
+	font-family: 'Josefin Sans', sans-serif;
 `;
 
 const StyledLabel = styled.label`
+	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
 	font-size: 1rem;
 	margin-bottom: 0.3rem;

@@ -1,2 +1,2 @@
-import '@fontsource/sora';
+import '@fontsource/josefin-sans';
 import './styles.css';

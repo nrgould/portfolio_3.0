@@ -139,7 +139,6 @@ export default function ContactForm({ style }: Props) {
 					handleChange,
 					isSubmitting,
 					isValid,
-					dirty,
 					handleReset,
 				}) => (
 					<StyledForm
@@ -224,14 +223,6 @@ export default function ContactForm({ style }: Props) {
 								/>
 							</FlexRow>
 						</motion.div>
-						{/* <Body
-							style={{
-								color: COLORS.secondaryText,
-								fontSize: '0.8rem',
-								marginTop: '6px',
-							}}>
-							We won't share your info with anyone else.
-						</Body> */}
 					</StyledForm>
 				)}
 			</Formik>

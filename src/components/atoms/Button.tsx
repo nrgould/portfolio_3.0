@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import '@fontsource/josefin-sans';
 import { COLORS, SHADOW } from '../../theme';
 
 interface styleProps {
@@ -65,7 +66,7 @@ export const StyledButton = styled.button<styleProps>`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	font-family: 'Josefin Sans';
+	font-family: 'Josefin Sans', sans-serif;
 	justify-content: space-around ${(p) => p.primary && primaryStyles};
 	${(p) => p.secondary && secondaryStyles};
 	${(p) => p.disabled && disabledStyles};

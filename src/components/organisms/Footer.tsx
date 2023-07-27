@@ -6,6 +6,7 @@ import FlexColumn from '../atoms/FlexColumn';
 import FlexRow from '../atoms/FlexRow';
 import { Title } from '../atoms/Title';
 import { Text } from '../atoms/Text';
+import '@fontsource/josefin-sans';
 
 const Container = styled(motion.div)`
 	width: 100%;
@@ -20,6 +21,7 @@ const Container = styled(motion.div)`
 export const ExternalLink = styled.a`
 	margin-right: 1rem;
 	text-decoration: none;
+	font-family: 'Josefin Sans', sans-serif;
 	color: ${COLORS.secondary};
 
 	&:hover {
