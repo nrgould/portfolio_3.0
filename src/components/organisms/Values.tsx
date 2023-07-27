@@ -63,7 +63,7 @@ export default function Values() {
 
 	return (
 		<>
-			<Container>
+			<Container id='values'>
 				<Title>VALUES</Title>
 				<StyledLink to={'#creative-vision'}>
 					<StyledSubtitle

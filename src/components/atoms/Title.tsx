@@ -10,7 +10,7 @@ export const Title = styled.h1<Props>`
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: ${(p) => p.size ?? '2rem'};
 	color: ${COLORS.primaryText};
-	font-weight: 700;
+	font-weight: 600;
 	position: relative;
 	overflow: hidden;
 	text-overflow: ellipsis;

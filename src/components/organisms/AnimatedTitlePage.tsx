@@ -22,7 +22,7 @@ const StyledTitle = styled(Title)`
 	letter-spacing: 16px;
 
 	@media (max-width: 767px) {
-		font-size: 2.5rem;
+		font-size: 2rem;
 		letter-spacing: 10px;
 	}
 `;

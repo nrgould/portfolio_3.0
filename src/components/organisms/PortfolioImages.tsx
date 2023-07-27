@@ -10,6 +10,7 @@ const Container = styled.div`
 	background-color: ${COLORS.background};
 	width: 100vw;
 	min-height: 100vh;
+	padding-top: 2.5rem;
 	scroll-snap-align: start;
 `;
 
@@ -25,25 +26,25 @@ export default function PortfolioImages({ data }) {
 			image.node.base.includes('portrait') &&
 			!portraits.includes(image)
 		) {
-			setPortraits([...portraits, image]);
+			setPortraits([...portraits, image].sort());
 		}
 
 		if (
 			image.node.base.includes('landscape') &&
 			!landscapes.includes(image)
 		) {
-			setLandscapes([...landscapes, image]);
+			setLandscapes([...landscapes, image].sort());
 		}
 
 		if (
 			image.node.base.includes('lifestyle') &&
 			!lifestyle.includes(image)
 		) {
-			setLifestyle([...lifestyle, image]);
+			setLifestyle([...lifestyle, image].sort());
 		}
 
 		if (image.node.base.includes('product') && !products.includes(image)) {
-			setProducts([...products, image]);
+			setProducts([...products, image].sort());
 		}
 	});
 
@@ -61,7 +62,7 @@ export default function PortfolioImages({ data }) {
 	return (
 		<>
 			<AnimatedTitlePage text='PHOTOGRAPHY' />
-			<Container>
+			<Container id='images'>
 				<AnimatePresence mode='wait'>
 					<CategorySelector
 						category={category}

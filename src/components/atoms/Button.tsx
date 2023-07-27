@@ -48,7 +48,7 @@ const iconStyles = css`
 
 const ButtonText = styled.p<styleProps>`
 	text-decoration: none;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 1rem;
 	padding: 0;
 	margin: 0;

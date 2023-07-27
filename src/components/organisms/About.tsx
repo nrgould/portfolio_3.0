@@ -28,9 +28,12 @@ const TextContainer = styled.div`
 const StyledText = styled(Text)`
 	max-width: 50rem;
 	font-size: 1.5rem;
+	margin: 0;
+	text-align: center;
 
 	@media (max-width: 767px) {
 		font-size: 1.2rem;
+		max-width: 90%;
 	}
 `;
 
@@ -54,7 +57,7 @@ export default function About() {
 
 	return (
 		<>
-			<Container>
+			<Container id='about'>
 				<FlexColumn alignItems='center' justifyContent='center'>
 					<StaticImage
 						src='../../images/R6II9003.jpg'
@@ -72,11 +75,6 @@ export default function About() {
 							ABOUT ME
 						</Title>
 						<StyledText
-							style={{
-								margin: 0,
-								maxWidth: '50vw',
-								textAlign: 'center',
-							}}
 							as={motion.p}
 							whileInView={'visible'}
 							initial={'hidden'}

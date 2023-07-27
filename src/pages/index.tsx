@@ -13,7 +13,9 @@ import Footer from '../components/organisms/Footer';
 
 const ScrollSnapContainer = styled.div`
 	height: 100vh;
+	max-width: 100vw;
 	overflow-y: scroll;
+	overflow-x: hidden;
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
 `;
@@ -50,7 +52,6 @@ const IndexPage = ({ data }) => {
 					<Values />
 					<Contact />
 					<Footer />
-					{/* <ProgressBar style={{ scaleX }} /> */}
 				</ScrollSnapContainer>
 			</Layout>
 		</>

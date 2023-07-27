@@ -16,7 +16,7 @@ const Container = styled.div`
 
 export default function Contact() {
 	return (
-		<Container>
+		<Container id='contact'>
 			<Title
 				as={motion.h2}
 				initial={{ opacity: 0, y: 30, scaleX: 0.75 }}

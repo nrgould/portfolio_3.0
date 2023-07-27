@@ -2,6 +2,7 @@ import { Main } from '../atoms/Main';
 import React from 'react';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { COLORS, breakpoint } from '../../theme';
+import Navbar from './Navbar';
 
 interface Props {
 	children: JSX.Element | JSX.Element[];
@@ -16,10 +17,9 @@ export default function Layout({
 	fullWidth,
 	ref,
 }: Props) {
-	const { width }: any = useWindowDimensions();
 	return (
 		<>
-			{/* {width > breakpoint ? <NavbarDesktop /> : <NavbarMobile />} */}
+			<Navbar />
 			<Main
 				ref={ref}
 				style={{

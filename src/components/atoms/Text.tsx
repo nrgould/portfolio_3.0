@@ -8,7 +8,6 @@ export const Text = styled.p`
 	color: ${COLORS.secondaryText};
 	line-height: 1.75;
 	white-space: normal;
-	max-width: 35rem;
 	margin: 0;
 	padding: 0;
 `;
