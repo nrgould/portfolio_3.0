@@ -32,6 +32,7 @@ export default function ImageGrid({ data }) {
 				staggerChildren: 0.07,
 			},
 		},
+		exit: { opacity: 0, x: 200 },
 	};
 
 	return (
@@ -49,7 +50,9 @@ export default function ImageGrid({ data }) {
 			<GridContainer
 				ref={ref}
 				variants={variants}
-				animate={inView ? 'show' : 'hidden'}>
+				animate={inView ? 'show' : 'hidden'}
+				initial='hidden'
+				exit={'exit'}>
 				{data.map((image) => {
 					return <GridImage key={image.node.id} image={image} />;
 				})}

@@ -15,32 +15,30 @@ const GridImageContainer = styled(motion.div)`
 
 export default function GridImage({ image }) {
 	const ref = useRef(null);
-	let inView = useInView(ref, { once: true });
+	let inView = useInView(ref);
 
 	const variants = {
 		hidden: { opacity: 0, y: 30 },
-		show: inView
-			? {
-					opacity: 1,
-					y: 0,
-					transition: {
-						type: 'spring',
-						damping: 20,
-						stiffness: 100,
-						bounce: 0,
-					},
-			  }
-			: { opacity: 0, y: 30 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				type: 'spring',
+				damping: 20,
+				stiffness: 100,
+				bounce: 0,
+			},
+		},
 	};
 
 	return (
 		<GridImageContainer
 			ref={ref}
 			variants={variants}
-			whileInView={{ opacity: 1, y: 0 }}
-			initial={{ opacity: 0, y: 30 }}
+			// whileInView={{ opacity: 1, y: 0 }}
+			initial={'hidden'}
+			animate={inView ? 'visible' : 'hidden'}
 			whileHover={{ scale: 1.03 }}
-			// exit={{ scaleX: 0.9, opacity: 0, y: 30 }}
 			transition={{ duration: 0.2 }}
 			whileTap={{ scale: 0.97 }}>
 			<GatsbyImage

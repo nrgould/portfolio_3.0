@@ -1,16 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
-import { breakpoint, COLORS } from '../../theme';
+import { COLORS } from '../../theme';
 import Button from '../atoms/Button';
 import TextInput from '../molecules/TextInput';
-import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import TextArea from '../molecules/TextArea';
 import { FaArrowRight } from 'react-icons/fa';
 import { SubTitle } from '../atoms/SubTitle';
 import FlexRow from '../atoms/FlexRow';
 import { motion, useInView } from 'framer-motion';
+import { Text } from '../atoms/Text';
 
 const encode = (data: any) => {
 	return Object.keys(data)
@@ -37,11 +37,9 @@ interface Props {
 
 export default function ContactForm({ style }: Props) {
 	const ref = useRef(null);
-
 	const inView = useInView(ref, { once: true });
 
 	const [isSent, setIsSent] = useState(false);
-	const { width } = useWindowDimensions();
 
 	const parentVariants = {
 		hidden: {
@@ -94,7 +92,14 @@ export default function ContactForm({ style }: Props) {
 	});
 
 	if (isSent) {
-		return <SubTitle>thanks for your submission!</SubTitle>;
+		return (
+			<>
+				<SubTitle style={{ color: COLORS.secondaryText }}>
+					Thanks for your submission!
+				</SubTitle>
+				<Text>I'll get back to you soon.</Text>
+			</>
+		);
 	}
 
 	return (

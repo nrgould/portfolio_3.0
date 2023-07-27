@@ -50,11 +50,16 @@ export default function Footer() {
 					</ExternalLink>
 					<ExternalLink
 						target='_blank'
-						href='www.instagram.com/nicholasgould1'>
+						href='https://www.linkedin.com/in/nicholasgouldfpv/'>
 						LinkedIn
 					</ExternalLink>
 				</FlexRow>
-				<Text style={{ position: 'absolute', bottom: 0 }}>
+				<Text
+					style={{
+						position: 'absolute',
+						bottom: 10,
+						color: COLORS.border,
+					}}>
 					© {new Date().getFullYear()} Nicholas Gould
 				</Text>
 			</FlexColumn>

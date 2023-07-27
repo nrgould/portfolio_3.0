@@ -104,7 +104,7 @@ export default function Values() {
 						variants={variants}
 						whileInView={'visible'}
 						initial={'hidden'}>
-						Find the Equilibrium between artistic vision and
+						Find the equilibrium between artistic vision and
 						marketability
 					</StyledText>
 				</TextContainer>
