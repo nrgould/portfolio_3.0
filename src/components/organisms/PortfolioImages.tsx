@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageGrid from './ImageGrid';
 import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
@@ -21,31 +21,36 @@ export default function PortfolioImages({ data }) {
 	const [products, setProducts] = useState([]);
 	const [category, setCategory] = useState('LIFESTYLE');
 
-	data.portfolioPhotos.edges.map((image) => {
-		if (
-			image.node.base.includes('portrait') &&
-			!portraits.includes(image)
-		) {
-			setPortraits([...portraits, image].sort());
-		}
+	useEffect(() => {
+		data.portfolioPhotos.edges.map((image) => {
+			if (
+				image.node.base.includes('portrait') &&
+				!portraits.includes(image)
+			) {
+				setPortraits([...portraits, image]);
+			}
 
-		if (
-			image.node.base.includes('landscape') &&
-			!landscapes.includes(image)
-		) {
-			setLandscapes([...landscapes, image].sort());
-		}
+			if (
+				image.node.base.includes('landscape') &&
+				!landscapes.includes(image)
+			) {
+				setLandscapes([...landscapes, image]);
+			}
 
-		if (
-			image.node.base.includes('lifestyle') &&
-			!lifestyle.includes(image)
-		) {
-			setLifestyle([...lifestyle, image].sort());
-		}
+			if (
+				image.node.base.includes('lifestyle') &&
+				!lifestyle.includes(image)
+			) {
+				setLifestyle([...lifestyle, image]);
+			}
 
-		if (image.node.base.includes('product') && !products.includes(image)) {
-			setProducts([...products, image].sort());
-		}
+			if (
+				image.node.base.includes('product') &&
+				!products.includes(image)
+			) {
+				setProducts([...products, image]);
+			}
+		});
 	});
 
 	function handleCategory() {

@@ -46,7 +46,6 @@ const IndexPage = ({ data }) => {
 				</Helmet>
 				<ScrollSnapContainer>
 					<Hero />
-					{/* <Test /> */}
 					<About />
 					<PortfolioImages data={data} />
 					<Values />
@@ -65,7 +64,7 @@ export const query = graphql`
 				extension: { regex: "/(jpg)|(png)|(jpeg)/" }
 				relativeDirectory: { eq: "optimized_images" }
 			}
-			sort: { base: ASC }
+			sort: { base: DESC }
 		) {
 			edges {
 				node {
