@@ -56,6 +56,13 @@ export default function Footer() {
 						LinkedIn
 					</ExternalLink>
 				</FlexRow>
+				<Text style={{ textAlign: 'center', marginTop: 50 }}>
+					also feel free to email me:
+					<br />{' '}
+					<ExternalLink href='mailto:nicholas@nicholasgouldphoto.com'>
+						nicholas@nicholasgouldphoto.com
+					</ExternalLink>
+				</Text>
 				<Text
 					style={{
 						position: 'absolute',

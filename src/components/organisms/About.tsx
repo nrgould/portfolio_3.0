@@ -60,7 +60,7 @@ export default function About() {
 			<Container id='about'>
 				<FlexColumn alignItems='center' justifyContent='center'>
 					<StaticImage
-						src='../../images/R6II9003.jpg'
+						src='../../images/nicholas_portrait.jpg'
 						width={200}
 						height={200}
 						style={{ borderRadius: '50%' }}
@@ -81,11 +81,12 @@ export default function About() {
 							variants={variants}
 							transition={{ delay: 0.5 }}>
 							As a lifestyle photographer with a passion for the
-							outdoors, coffee, and traveling, I thrive on
-							capturing authentic moments that celebrate the
-							beauty of life. With a deep appreciation for nature
-							and an innate ability to connect with people, I
-							strive to create compelling visuals that resonate
+							outdoors, coffee, and traveling, I help clients
+							establish greater emotional appeal to their brands
+							through capturing authentic moments that celebrate
+							the beauty of life. With a deep appreciation for
+							nature and an innate ability to connect with people,
+							I strive to create compelling visuals that resonate
 							with audiences and evoke emotions.
 						</StyledText>
 					</TextContainer>
