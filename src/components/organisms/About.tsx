@@ -23,6 +23,10 @@ const TextContainer = styled.div`
 	margin: auto;
 	align-items: center;
 	justify-content: center;
+
+	@media (max-width: 767px) {
+		width: 90%;
+	}
 `;
 
 const StyledText = styled(Text)`
@@ -33,7 +37,7 @@ const StyledText = styled(Text)`
 
 	@media (max-width: 767px) {
 		font-size: 1.2rem;
-		max-width: 90%;
+		max-width: 100%;
 	}
 `;
 
@@ -61,8 +65,8 @@ export default function About() {
 				<FlexColumn alignItems='center' justifyContent='center'>
 					<StaticImage
 						src='../../images/nicholas_portrait.jpg'
-						width={200}
-						height={200}
+						width={150}
+						height={150}
 						style={{ borderRadius: '50%' }}
 						alt='Portrait of Nicholas Gould'
 					/>
@@ -83,11 +87,11 @@ export default function About() {
 							As a lifestyle photographer with a passion for the
 							outdoors, coffee, and traveling, I help clients
 							establish greater emotional appeal to their brands
-							through capturing authentic moments that celebrate
-							the beauty of life. With a deep appreciation for
-							nature and an innate ability to connect with people,
-							I strive to create compelling visuals that resonate
-							with audiences and evoke emotions.
+							through capturing authentic moments between people
+							and product. With a deep appreciation for nature and
+							an innate ability to connect with people, I strive
+							to create compelling visuals that resonate with
+							audiences and evoke emotions.
 						</StyledText>
 					</TextContainer>
 				</FlexColumn>
