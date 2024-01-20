@@ -169,6 +169,11 @@ export default function Navbar() {
 									<NavLink onClick={handleOpen} to='#contact'>
 										Contact
 									</NavLink>
+									<NavLink
+										onClick={handleOpen}
+										to='https://studio.nicholasgouldphoto.com'>
+										Prints
+									</NavLink>
 								</FlexColumn>
 							</StyledNavLinks>
 						</Drawer>
