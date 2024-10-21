@@ -22,36 +22,41 @@ export default function PortfolioImages({ data }) {
 	const [category, setCategory] = useState('LIFESTYLE');
 
 	useEffect(() => {
-		data.portfolioPhotos.edges.map((image) => {
-			if (
-				image.node.base.includes('portrait') &&
-				!portraits.includes(image)
-			) {
-				setPortraits([...portraits, image]);
-			}
+		const updatedCategories = data.portfolioPhotos.edges.reduce(
+			(acc, image) => {
+				const { base } = image.node;
 
-			if (
-				image.node.base.includes('landscape') &&
-				!landscapes.includes(image)
-			) {
-				setLandscapes([...landscapes, image]);
-			}
+				if (base.includes('portrait') && !portraits.includes(image)) {
+					acc.portraits.push(image);
+				}
 
-			if (
-				image.node.base.includes('lifestyle') &&
-				!lifestyle.includes(image)
-			) {
-				setLifestyle([...lifestyle, image]);
-			}
+				if (base.includes('landscape') && !landscapes.includes(image)) {
+					acc.landscapes.push(image);
+				}
 
-			if (
-				image.node.base.includes('product') &&
-				!products.includes(image)
-			) {
-				setProducts([...products, image]);
+				if (base.includes('lifestyle') && !lifestyle.includes(image)) {
+					acc.lifestyle.push(image);
+				}
+
+				if (base.includes('product') && !products.includes(image)) {
+					acc.products.push(image);
+				}
+
+				return acc;
+			},
+			{
+				portraits: [...portraits],
+				landscapes: [...landscapes],
+				lifestyle: [...lifestyle],
+				products: [...products],
 			}
-		});
-	});
+		);
+
+		setPortraits(updatedCategories.portraits);
+		setLandscapes(updatedCategories.landscapes);
+		setLifestyle(updatedCategories.lifestyle);
+		setProducts(updatedCategories.products);
+	}, [data, portraits, landscapes, lifestyle, products]);
 
 	function handleCategory() {
 		switch (category) {

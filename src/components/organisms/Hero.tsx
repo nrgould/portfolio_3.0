@@ -76,7 +76,8 @@ export default function Hero() {
 					position: 'relative',
 					placeItems: 'center',
 					display: 'grid',
-				}}>
+				}}
+			>
 				<TextContainer>
 					<StyledTitle
 						as={motion.h1}
@@ -86,7 +87,8 @@ export default function Hero() {
 							duration: 0.8,
 							delay: 0.2,
 							ease: [0, 0.71, 0.2, 1.01],
-						}}>
+						}}
+					>
 						NICHOLAS GOULD
 					</StyledTitle>
 					<StyledSubTitle
@@ -97,8 +99,9 @@ export default function Hero() {
 							duration: 0.8,
 							delay: 0.5,
 							ease: [0, 0.71, 0.2, 1.01],
-						}}>
-						Photographer & Filmmaker based in Raleigh, NC
+						}}
+					>
+						Photographer & Filmmaker based in NC
 					</StyledSubTitle>
 				</TextContainer>
 			</div>
