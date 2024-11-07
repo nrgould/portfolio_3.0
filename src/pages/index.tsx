@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import Contact from '../components/organisms/Contact';
 import Values from '../components/organisms/Values';
 import Footer from '../components/organisms/Footer';
+import Prints from '../components/organisms/Prints';
 
 interface ScrollSnapContainerProps {
 	snapEnabled: boolean;
@@ -86,6 +87,7 @@ const IndexPage = ({ data }) => {
 						<PortfolioImages data={data} />
 					</div>
 					<Values />
+					<Prints />
 					<Contact />
 					<Footer />
 				</ScrollSnapContainer>

@@ -8,8 +8,8 @@ import FlexColumn from '../atoms/FlexColumn';
 
 const Container = styled.div`
 	height: 100vh;
-	width: 100vw;
 	display: flex;
+	width: 100vw;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
