@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
 import GridImage from '../molecules/GridImage';
 import { SubTitle } from '../atoms/SubTitle';
 import FlexRow from '../atoms/FlexRow';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const GridContainer = styled(motion.div)`
 	width: 80vw;
@@ -34,8 +36,19 @@ const variants = {
 export default function ImageGrid({ data }) {
 	const ref = useRef(null);
 	const inView = useInView(ref, { once: true });
+	const [open, setOpen] = useState(false);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 
-	console.log('InView status:', inView);
+	// Convert images to the format required by Lightbox
+	const slides = data.map((image) => ({
+		src: image.node.childImageSharp.gatsbyImageData.images.fallback.src,
+	}));
+
+	// Function to open Lightbox at a specific image
+	const handleOpenLightbox = (index) => {
+		setSelectedIndex(index);
+		setOpen(true);
+	};
 
 	return (
 		<>
@@ -59,9 +72,23 @@ export default function ImageGrid({ data }) {
 			>
 				{data.map((image, index) => {
 					const key = image.node.id || `${image.node.base}-${index}`;
-					return <GridImage key={key} image={image} />;
+					return (
+						<GridImage
+							key={key}
+							image={image}
+							onClick={() => handleOpenLightbox(index)}
+						/>
+					);
 				})}
 			</GridContainer>
+
+			{/* Lightbox Component */}
+			<Lightbox
+				open={open}
+				close={() => setOpen(false)} // Close Lightbox
+				slides={slides}
+				index={selectedIndex} // Set the initial image index
+			/>
 		</>
 	);
 }

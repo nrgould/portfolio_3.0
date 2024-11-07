@@ -1,9 +1,7 @@
 import { GatsbyImage } from 'gatsby-plugin-image';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
 
 const GridImageContainer = styled(motion.div)`
 	width: 100%;
@@ -15,10 +13,13 @@ const GridImageContainer = styled(motion.div)`
 	}
 `;
 
-export default function GridImage({ image }) {
+export default function GridImage({ image, onClick }) {
 	const ref = useRef(null);
 	let inView = useInView(ref);
-	const [open, setOpen] = useState(false);
+
+	document.addEventListener('contextmenu', (e) => {
+		e.preventDefault();
+	});
 
 	const variants = {
 		hidden: { opacity: 0, y: 30 },
@@ -35,24 +36,23 @@ export default function GridImage({ image }) {
 	};
 
 	return (
-		<GridImageContainer
-			ref={ref}
-			variants={variants}
-			// whileInView={{ opacity: 1, y: 0 }}
-			initial={'hidden'}
-			animate={inView ? 'visible' : 'hidden'}
-			whileHover={{ scale: 1.03 }}
-			transition={{ duration: 0.2 }}
-			whileTap={{ scale: 0.97 }}>
-			{/* <Lightbox
-				open={open}
-				close={() => setOpen(false)}
-				slides={[{ src: image.node.childImageSharp.gatsbyImageData }]}
-			/> */}
-			<GatsbyImage
-				image={image.node.childImageSharp.gatsbyImageData}
-				alt={image.node.base.split('_').join(' ')}
-			/>
-		</GridImageContainer>
+		<>
+			<GridImageContainer
+				ref={ref}
+				variants={variants}
+				initial={'hidden'}
+				animate={inView ? 'visible' : 'hidden'}
+				whileHover={{ scale: 1.03 }}
+				transition={{ duration: 0.2 }}
+				whileTap={{ scale: 0.97 }}
+				onClick={onClick}
+			>
+				<GatsbyImage
+					image={image.node.childImageSharp.gatsbyImageData}
+					alt={image.node.base.split('_').join(' ')}
+					onContextMenu={(e) => e.preventDefault()}
+				/>
+			</GridImageContainer>
+		</>
 	);
 }
