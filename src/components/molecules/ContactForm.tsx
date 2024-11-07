@@ -107,7 +107,8 @@ export default function ContactForm({ style }: Props) {
 			variants={parentVariants}
 			animate={inView ? 'visible' : 'hidden'}
 			initial='hidden'
-			ref={ref}>
+			ref={ref}
+		>
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
@@ -131,7 +132,8 @@ export default function ContactForm({ style }: Props) {
 					} finally {
 						setSubmitting(false);
 					}
-				}}>
+				}}
+			>
 				{({
 					errors,
 					touched,
@@ -146,7 +148,8 @@ export default function ContactForm({ style }: Props) {
 						style={style}
 						onReset={handleReset}
 						data-netlify='true'
-						data-netlify-honeypot='bot-field'>
+						data-netlify-honeypot='bot-field'
+					>
 						<motion.div variants={childVariants}>
 							<TextInput
 								required
@@ -182,11 +185,11 @@ export default function ContactForm({ style }: Props) {
 								label='Website (if applicable)'
 								name='website'
 								placeholder='www.yourcompany.com'
-								error={
-									errors.website && touched.website
-										? errors.website
-										: null
-								}
+								// error={
+								// 	errors.website && touched.website
+								// 		? errors.website
+								// 		: null
+								// }
 								value={values.website}
 								handleChange={handleChange}
 							/>
@@ -203,7 +206,8 @@ export default function ContactForm({ style }: Props) {
 						<motion.div variants={childVariants}>
 							<FlexRow
 								alignItems='center'
-								justifyContent='center'>
+								justifyContent='center'
+							>
 								<Button
 									icon={
 										<FaArrowRight
