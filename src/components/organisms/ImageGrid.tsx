@@ -20,20 +20,22 @@ const GridContainer = styled(motion.div)`
 	}
 `;
 
+const variants = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.07,
+		},
+	},
+	exit: { opacity: 0, x: 200 },
+};
+
 export default function ImageGrid({ data }) {
 	const ref = useRef(null);
 	const inView = useInView(ref, { once: true });
 
-	const variants = {
-		hidden: { opacity: 0 },
-		show: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.07,
-			},
-		},
-		exit: { opacity: 0, x: 200 },
-	};
+	console.log('InView status:', inView);
 
 	return (
 		<>
@@ -41,7 +43,8 @@ export default function ImageGrid({ data }) {
 				<FlexRow
 					style={{ height: '50vh' }}
 					alignItems='center'
-					justifyContent='center'>
+					justifyContent='center'
+				>
 					<SubTitle style={{ textAlign: 'center' }}>
 						Sorry, something went wrong.
 					</SubTitle>
@@ -52,9 +55,11 @@ export default function ImageGrid({ data }) {
 				variants={variants}
 				animate={inView ? 'show' : 'hidden'}
 				initial='hidden'
-				exit={'exit'}>
-				{data.map((image) => {
-					return <GridImage key={image.node.id} image={image} />;
+				exit={'exit'}
+			>
+				{data.map((image, index) => {
+					const key = image.node.id || `${image.node.base}-${index}`;
+					return <GridImage key={key} image={image} />;
 				})}
 			</GridContainer>
 		</>

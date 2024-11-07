@@ -15,70 +15,54 @@ const Container = styled.div`
 `;
 
 export default function PortfolioImages({ data }) {
-	const [portraits, setPortraits] = useState([]);
-	const [landscapes, setLandscapes] = useState([]);
-	const [lifestyle, setLifestyle] = useState([]);
-	const [products, setProducts] = useState([]);
 	const [category, setCategory] = useState('LIFESTYLE');
+	const [filteredImages, setFilteredImages] = useState([]);
 
 	useEffect(() => {
-		const updatedCategories = data.portfolioPhotos.edges.reduce(
+		const categories = data.portfolioPhotos.edges.reduce(
 			(acc, image) => {
 				const { base } = image.node;
 
-				if (base.includes('portrait') && !portraits.includes(image)) {
+				if (base.includes('portrait')) {
 					acc.portraits.push(image);
-				}
-
-				if (base.includes('landscape') && !landscapes.includes(image)) {
+				} else if (base.includes('landscape')) {
 					acc.landscapes.push(image);
-				}
-
-				if (base.includes('lifestyle') && !lifestyle.includes(image)) {
+				} else if (base.includes('lifestyle')) {
 					acc.lifestyle.push(image);
-				}
-
-				if (base.includes('product') && !products.includes(image)) {
+				} else if (base.includes('product')) {
 					acc.products.push(image);
 				}
 
 				return acc;
 			},
-			{
-				portraits: [...portraits],
-				landscapes: [...landscapes],
-				lifestyle: [...lifestyle],
-				products: [...products],
-			}
+			{ portraits: [], landscapes: [], lifestyle: [], products: [] }
 		);
 
-		setPortraits(updatedCategories.portraits);
-		setLandscapes(updatedCategories.landscapes);
-		setLifestyle(updatedCategories.lifestyle);
-		setProducts(updatedCategories.products);
-	}, [data, portraits, landscapes, lifestyle, products]);
-
-	function handleCategory() {
 		switch (category) {
 			case 'LIFESTYLE':
-				return lifestyle;
+				setFilteredImages(categories.lifestyle);
+				break;
 			case 'LANDSCAPE':
-				return landscapes;
+				setFilteredImages(categories.landscapes);
+				break;
 			case 'PORTRAIT':
-				return portraits;
+				setFilteredImages(categories.portraits);
+				break;
+			default:
+				setFilteredImages(categories.lifestyle);
 		}
-	}
+	}, [data, category]);
 
 	return (
 		<>
 			<AnimatedTitlePage text='PHOTOGRAPHY' />
 			<Container id='images'>
-				<AnimatePresence mode='wait'>
+				<AnimatePresence>
 					<CategorySelector
 						category={category}
 						setCategory={setCategory}
 					/>
-					<ImageGrid data={handleCategory()} />
+					<ImageGrid data={filteredImages} />
 				</AnimatePresence>
 			</Container>
 		</>

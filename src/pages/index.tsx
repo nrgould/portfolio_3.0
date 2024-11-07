@@ -11,16 +11,50 @@ import Contact from '../components/organisms/Contact';
 import Values from '../components/organisms/Values';
 import Footer from '../components/organisms/Footer';
 
-const ScrollSnapContainer = styled.div`
+interface ScrollSnapContainerProps {
+	snapEnabled: boolean;
+}
+
+const ScrollSnapContainer = styled.div<ScrollSnapContainerProps>`
 	height: 100vh;
 	max-width: 100vw;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	scroll-snap-type: y mandatory;
+	scroll-snap-type: ${({ snapEnabled }) =>
+		snapEnabled ? 'y mandatory' : 'none'};
 	scroll-behavior: smooth;
 `;
 
 const IndexPage = ({ data }) => {
+	const [snapEnabled, setSnapEnabled] = React.useState(true);
+
+	React.useEffect(() => {
+		const portfolioSection = document.getElementById('portfolio-section');
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setSnapEnabled(false);
+						console.log('Snapping disabled');
+					} else {
+						setSnapEnabled(true);
+						console.log('Snapping enabled');
+					}
+				});
+			},
+			{ threshold: 0.5 }
+		);
+
+		if (portfolioSection) {
+			observer.observe(portfolioSection);
+		}
+
+		return () => {
+			if (portfolioSection) {
+				observer.unobserve(portfolioSection);
+			}
+		};
+	}, []);
 	return (
 		<>
 			<Layout fullWidth>
@@ -42,12 +76,15 @@ const IndexPage = ({ data }) => {
 					<link rel='manifest' href='/manifest.json' />
 					<meta
 						name='description'
-						content='Photographer based out of Raleigh, North Carolina.'></meta>
+						content='Photographer based out of Raleigh, North Carolina.'
+					></meta>
 				</Helmet>
-				<ScrollSnapContainer>
+				<ScrollSnapContainer snapEnabled={snapEnabled}>
 					<Hero />
 					<About />
-					<PortfolioImages data={data} />
+					<div id='portfolio-section'>
+						<PortfolioImages data={data} />
+					</div>
 					<Values />
 					<Contact />
 					<Footer />
