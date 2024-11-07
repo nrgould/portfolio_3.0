@@ -35,24 +35,34 @@ export default function Footer() {
 			<FlexColumn
 				style={{ height: '100%' }}
 				alignItems='center'
-				justifyContent='center'>
+				justifyContent='center'
+			>
 				<Title style={{ fontSize: '1.75rem' }}>
 					See more of my work:
 				</Title>
 				<FlexRow alignItems='center' justifyContent='center'>
 					<ExternalLink
 						target='_blank'
-						href='https://www.instagram.com/nicholasgould1'>
+						href='https://www.instagram.com/nicholasgould1'
+					>
 						Instagram
 					</ExternalLink>
 					<ExternalLink
 						target='_blank'
-						href='https://www.behance.net/nrgould197'>
+						href='https://www.threads.net/@nicholasgould1'
+					>
+						Threads
+					</ExternalLink>
+					<ExternalLink
+						target='_blank'
+						href='https://www.behance.net/nrgould197'
+					>
 						Behance
 					</ExternalLink>
 					<ExternalLink
 						target='_blank'
-						href='https://www.linkedin.com/in/nicholasgouldfpv/'>
+						href='https://www.linkedin.com/in/nicholasgouldfpv/'
+					>
 						LinkedIn
 					</ExternalLink>
 				</FlexRow>
@@ -68,7 +78,8 @@ export default function Footer() {
 						position: 'absolute',
 						bottom: 10,
 						color: COLORS.border,
-					}}>
+					}}
+				>
 					© {new Date().getFullYear()} Nicholas Gould
 				</Text>
 			</FlexColumn>
