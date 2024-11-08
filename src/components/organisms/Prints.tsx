@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Title } from '../atoms/Title';
 import { Text } from '../atoms/Text';
@@ -31,7 +31,7 @@ const ImageContainer = styled.div`
 	width: 100%;
 
 	@media (max-width: 767px) {
-		width: 70%; /* Adjust width to make the image smaller on mobile */
+		width: 60%; /* Adjust width to make the image smaller on mobile */
 		align-items: flex-end;
 		margin-right: 0;
 	}
@@ -49,7 +49,6 @@ const ContentContainer = styled.div`
 		align-items: center;
 		justify-content: flex-start;
 		text-align: center;
-		padding: 1rem;
 		margin-top: 2rem;
 	}
 `;
@@ -80,19 +79,6 @@ export default function Prints() {
 				delay: 0.2,
 				ease: [0, 0.71, 0.2, 1.01],
 			},
-		},
-	};
-
-	const childVariants = {
-		hidden: {
-			opacity: 0,
-			x: 200,
-			transition: { duration: 0.5 },
-		},
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: { duration: 0.5 },
 		},
 	};
 
@@ -146,6 +132,7 @@ export default function Prints() {
 								size={14}
 							/>
 						}
+						style={{ color: COLORS.buttonTextBlack }}
 						onClick={() =>
 							window.open(
 								'https://studio.nicholasgouldphoto.com',
