@@ -32,7 +32,7 @@ const StyledTitle = styled(Title)`
 	text-align: center;
 	line-height: 4rem;
 	max-width: 50%;
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 
 	@media (max-width: 767px) {
 		font-size: 2.2rem;
@@ -54,14 +54,8 @@ const StyledSubTitle = styled(SubTitle)`
 
 export default function Hero() {
 	const ref = useRef(null);
-	const { width, height }: any = useWindowDimensions();
+	const { height }: any = useWindowDimensions();
 
-	const inView = useInView(ref, { once: true });
-
-	const variants = {
-		hidden: { opacity: 0, scale: 0.5 },
-		show: { opacity: 1, scale: 1 },
-	};
 	return (
 		<ImageContainer ref={ref}>
 			<StaticImage
@@ -71,7 +65,6 @@ export default function Hero() {
 				layout='fullWidth'
 				style={{
 					gridArea: '1/1',
-					// maxWidth: width,
 					maxHeight: height,
 					opacity: '50%',
 				}}
@@ -84,7 +77,7 @@ export default function Hero() {
 					position: 'relative',
 					placeItems: 'end',
 					display: 'grid',
-					marginBottom: '5rem',
+					marginBottom: '3rem',
 				}}
 			>
 				<TextContainer>
@@ -117,7 +110,7 @@ export default function Hero() {
 					</StyledSubTitle>
 					<ButtonNavLink
 						to='#contact'
-						text="Work With Me"
+						text='Work With Me'
 						primary
 						icon={
 							<FaArrowRight
@@ -126,7 +119,6 @@ export default function Hero() {
 							/>
 						}
 					/>
-				
 				</TextContainer>
 			</div>
 		</ImageContainer>
