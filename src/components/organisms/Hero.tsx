@@ -77,7 +77,7 @@ export default function Hero() {
 					position: 'relative',
 					placeItems: 'end',
 					display: 'grid',
-					marginBottom: '3rem',
+					marginBottom: '5rem',
 				}}
 			>
 				<TextContainer>
@@ -103,10 +103,7 @@ export default function Hero() {
 							ease: [0, 0.71, 0.2, 1.01],
 						}}
 					>
-						Based in North Carolina, I bring my love for the
-						outdoors and travel to life through photography,
-						creating visuals that connect brands with audiences on a
-						deeper level
+						Lifestyle photographer based in NC
 					</StyledSubTitle>
 					<ButtonNavLink
 						to='#contact'
