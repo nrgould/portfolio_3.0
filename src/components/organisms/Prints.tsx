@@ -55,7 +55,7 @@ const ContentContainer = styled.div`
 
 const StyledText = styled(Text)`
 	max-width: 40rem;
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 	margin: 1rem 0;
 
 	@media (max-width: 767px) {
@@ -84,7 +84,12 @@ export default function Prints() {
 
 	return (
 		<Container id='prints'>
-			<ImageContainer>
+			<ImageContainer
+				as={motion.div}
+				whileInView={'visible'}
+				initial={'hidden'}
+				variants={variants}
+			>
 				<StaticImage
 					src='../../images/Amsterdam Bike.png'
 					width={400}
@@ -118,7 +123,7 @@ export default function Prints() {
 					collection.
 				</StyledText>
 				<motion.div
-					initial={{ opacity: 0, scale: 1, x: -10 }}
+					initial={{ opacity: 0, scale: 1, x: 10 }}
 					whileInView={{ opacity: 1, scale: 1, x: 0 }}
 					transition={{
 						duration: 0.8,
@@ -128,7 +133,7 @@ export default function Prints() {
 					style={{ marginTop: 10 }}
 				>
 					<Button
-						text='See Prints'
+						text='Shop Now'
 						primary
 						icon={
 							<FaArrowRight
@@ -144,9 +149,7 @@ export default function Prints() {
 								'noopener,noreferrer'
 							)
 						}
-					>
-						View Prints
-					</Button>
+					/>
 				</motion.div>
 			</ContentContainer>
 		</Container>

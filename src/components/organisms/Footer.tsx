@@ -80,7 +80,7 @@ export default function Footer() {
 						color: COLORS.border,
 					}}
 				>
-					© {new Date().getFullYear()} Nicholas Gould
+					© {new Date().getFullYear()} NRG Studios, LLC
 				</Text>
 			</FlexColumn>
 		</Container>
