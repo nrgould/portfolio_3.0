@@ -77,7 +77,7 @@ const StyledTitle = styled(Title)`
 
 	@media (max-width: 767px) {
 		transform: translate(-50%, -45%);
-		font-size: 1.2rem;
+		font-size: 1rem;
 	}
 `;
 

@@ -35,8 +35,8 @@ const StyledTitle = styled(Title)`
 	margin-bottom: 0.5rem;
 
 	@media (max-width: 767px) {
-		font-size: 2.2rem;
-		line-height: 3rem;
+		font-size: 2rem;
+		line-height: 2.5rem;
 		max-width: 90%;
 	}
 `;
@@ -75,9 +75,9 @@ export default function Hero() {
 				style={{
 					gridArea: '1/1',
 					position: 'relative',
-					placeItems: 'end',
+					placeItems: 'flex-end',
 					display: 'grid',
-					marginBottom: '5rem',
+					marginBottom: '8rem',
 				}}
 			>
 				<TextContainer>
