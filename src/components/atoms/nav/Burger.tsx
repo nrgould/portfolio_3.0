@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion, Transition } from 'framer-motion';
 import { COLORS } from '../../../theme';
-import { useWindowDimensions } from '../../../hooks/useWindowDimensions';
 
 interface Props {
 	isOpen?: Boolean;
@@ -25,6 +24,7 @@ const Container = styled(motion.div)`
 	padding-right: 0;
 	z-index: 20;
 	cursor: pointer;
+	margin-left: auto;
 `;
 
 const BurgerLine = styled(motion.div)`

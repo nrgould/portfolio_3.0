@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
 import '../index.css';
 import { graphql, type HeadFC } from 'gatsby';
 import Layout from '../components/organisms/Layout';
@@ -27,9 +28,9 @@ const ScrollSnapContainer = styled.div<ScrollSnapContainerProps>`
 `;
 
 const IndexPage = ({ data }) => {
-	const [snapEnabled, setSnapEnabled] = React.useState(true);
+	const [snapEnabled, setSnapEnabled] = useState(true);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const portfolioSection = document.getElementById('portfolio-section');
 		const observer = new IntersectionObserver(
 			(entries) => {

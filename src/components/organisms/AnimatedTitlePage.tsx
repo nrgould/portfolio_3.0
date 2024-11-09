@@ -49,10 +49,11 @@ export default function AnimatedTitlePage({ text }) {
 				aria-label={text}
 				role='heading'
 				as={motion.h1}
-				initial={{ opacity: 0, y: 30, scaleX: 0.75 }}
+				initial={{ opacity: 0, y: 0, scaleX: 0.8 }}
 				whileInView={{ scaleX: 1, opacity: 1, y: 0 }}
 				transition={{ duration: 0.6 }}
-				whileTap={{ scale: 0.97 }}>
+				whileTap={{ scale: 0.97 }}
+			>
 				{text}
 			</StyledTitle>
 		</TitleContainer>

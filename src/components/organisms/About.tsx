@@ -67,7 +67,14 @@ export default function About() {
 						src='../../images/nicholas_portrait.jpg'
 						width={150}
 						height={150}
-						style={{ borderRadius: '50%' }}
+						style={{
+							borderRadius: '50%',
+							overflow: 'hidden',
+						}}
+						imgStyle={{
+							objectFit: 'cover',
+							objectPosition: 'center',
+						}}
 						alt='Portrait of Nicholas Gould'
 					/>
 					<TextContainer>

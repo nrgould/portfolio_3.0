@@ -5,7 +5,7 @@ import { Title } from '../atoms/Title';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ButtonNavLink from '../atoms/ButtonNavLink';
 import { FaArrowRight } from 'react-icons/fa';
 

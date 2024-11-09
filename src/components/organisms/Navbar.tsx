@@ -7,6 +7,7 @@ import { COLORS, breakpoint } from '../../theme';
 import FlexColumn from '../atoms/FlexColumn';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { Link } from 'gatsby';
+import { Title } from '../atoms/Title';
 
 const Container = styled(motion.nav)`
 	position: absolute;
@@ -59,6 +60,24 @@ const NavLink = styled(Link)`
 
 	&:last-of-type {
 		margin-bottom: 2rem;
+	}
+`;
+
+const StyledTitle = styled(Title)`
+	padding: 0;
+	margin: 0;
+	color: ${COLORS.primary};
+	font-size: 1.3rem;
+	text-align: center;
+	z-index: 100;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -40%);
+
+	@media (max-width: 767px) {
+		transform: translate(-50%, -45%);
+		font-size: 1.2rem;
 	}
 `;
 
@@ -122,7 +141,12 @@ export default function Navbar() {
 	return (
 		<>
 			<Container>
-				<FlexRow alignItems='center' justifyContent='flex-end'>
+				<FlexRow
+					alignItems='center'
+					justifyContent='center'
+					style={{ position: 'relative' }}
+				>
+					<StyledTitle>NICHOLAS GOULD</StyledTitle>
 					<Burger
 						isOpen={isOpen}
 						onClick={handleOpen}
@@ -151,12 +175,14 @@ export default function Navbar() {
 								type: 'tween',
 								ease: 'easeInOut',
 								duration: 0.5,
-							}}>
+							}}
+						>
 							<StyledNavLinks>
 								<FlexColumn
 									alignItems='flex-start'
 									justifyContent='center'
-									style={{ width: '100%' }}>
+									style={{ width: '100%' }}
+								>
 									<NavLink onClick={handleOpen} to='#about'>
 										About
 									</NavLink>
@@ -169,9 +195,7 @@ export default function Navbar() {
 									<NavLink onClick={handleOpen} to='#contact'>
 										Contact
 									</NavLink>
-									<NavLink
-										onClick={handleOpen}
-										to='https://studio.nicholasgouldphoto.com'>
+									<NavLink onClick={handleOpen} to='#prints'>
 										Prints
 									</NavLink>
 								</FlexColumn>

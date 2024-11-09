@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { color, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Title } from '../atoms/Title';
 import { Text } from '../atoms/Text';
@@ -68,7 +68,7 @@ export default function Prints() {
 	const variants = {
 		hidden: {
 			opacity: 0,
-			y: 50,
+			y: 20,
 			transition: { duration: 0.5 },
 		},
 		visible: {
@@ -118,10 +118,14 @@ export default function Prints() {
 					collection.
 				</StyledText>
 				<motion.div
-					variants={variants}
-					initial={'hidden'}
+					initial={{ opacity: 0, scale: 1, x: -10 }}
+					whileInView={{ opacity: 1, scale: 1, x: 0 }}
+					transition={{
+						duration: 0.8,
+						delay: 0.2,
+						ease: [0, 0.71, 0.2, 1.01],
+					}}
 					style={{ marginTop: 10 }}
-					whileInView={'visible'}
 				>
 					<Button
 						text='See Prints'
