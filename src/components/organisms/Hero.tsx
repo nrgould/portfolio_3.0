@@ -26,22 +26,28 @@ const StyledTitle = styled(Title)`
 	padding: 0;
 	margin: 0;
 	color: ${COLORS.primary};
-	font-size: 4rem;
+	font-size: 3rem;
 	text-align: center;
 	line-height: 4rem;
-	/* max-width: 80%; */
+	max-width: 50%;
+	margin-bottom: 1rem;
 
 	@media (max-width: 767px) {
-		font-size: 2.5rem;
+		font-size: 2.2rem;
 		line-height: 3rem;
+		max-width: 90%;
 	}
 `;
 const StyledSubTitle = styled(SubTitle)`
 	padding: 0;
 	margin: 0;
 	color: ${COLORS.secondaryText};
-	max-width: 80%;
+	max-width: 50%;
 	text-align: center;
+	@media (max-width: 767px) {
+		max-width: 90%;
+		font-size: 1.2rem;
+	}
 `;
 
 export default function Hero() {
@@ -58,7 +64,7 @@ export default function Hero() {
 		<ImageContainer ref={ref}>
 			<StaticImage
 				alt='portrait of Nicholas Gould in Copenhagen, Denmark'
-				src='../../images/R6II1876.jpg'
+				src='../../images/optimized_images/1_portrait_couple_looking_at_eachother_sunset.jpg'
 				placeholder='dominantColor'
 				layout='fullWidth'
 				style={{
@@ -74,14 +80,15 @@ export default function Hero() {
 				style={{
 					gridArea: '1/1',
 					position: 'relative',
-					placeItems: 'center',
+					placeItems: 'end',
 					display: 'grid',
+					marginBottom: '5rem',
 				}}
 			>
 				<TextContainer>
 					<StyledTitle
 						as={motion.h1}
-						initial={{ opacity: 0, scale: 0.5, y: 30 }}
+						initial={{ opacity: 0, scale: 1, y: 10 }}
 						whileInView={{ opacity: 1, scale: 1, y: 0 }}
 						transition={{
 							duration: 0.8,
@@ -89,19 +96,22 @@ export default function Hero() {
 							ease: [0, 0.71, 0.2, 1.01],
 						}}
 					>
-						NICHOLAS GOULD
+						Capturing Authentic Moments, Elevating Brand Connection
 					</StyledTitle>
 					<StyledSubTitle
 						as={motion.h2}
-						initial={{ opacity: 0, scale: 0.5, y: 30 }}
+						initial={{ opacity: 0, scale: 0.9, y: 20 }}
 						whileInView={{ opacity: 1, scale: 1, y: 0 }}
 						transition={{
 							duration: 0.8,
-							delay: 0.5,
+							delay: 0.3,
 							ease: [0, 0.71, 0.2, 1.01],
 						}}
 					>
-						Photographer & Filmmaker based in NC
+						Based in North Carolina, I bring my love for the
+						outdoors and travel to life through photography,
+						creating visuals that connect brands with audiences on a
+						deeper level
 					</StyledSubTitle>
 				</TextContainer>
 			</div>

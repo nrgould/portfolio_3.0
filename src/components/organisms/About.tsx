@@ -75,7 +75,8 @@ export default function About() {
 							as={motion.h2}
 							whileInView={'visible'}
 							initial={'hidden'}
-							variants={variants}>
+							variants={variants}
+						>
 							ABOUT ME
 						</Title>
 						<StyledText
@@ -83,14 +84,15 @@ export default function About() {
 							whileInView={'visible'}
 							initial={'hidden'}
 							variants={variants}
-							transition={{ delay: 0.5 }}>
+							transition={{ delay: 0.5 }}
+						>
 							As a lifestyle photographer with a passion for the
-							outdoors, coffee, and traveling, I help clients
-							establish greater emotional appeal to their brands
-							through capturing authentic moments between people
-							and product. With a deep appreciation for nature and
-							an innate ability to connect with people, I strive
-							to create compelling visuals that resonate with
+							outdoors and traveling, I help clients establish
+							greater emotional appeal to their brands through
+							capturing authentic moments between people and
+							product. With a deep appreciation for nature and an
+							innate ability to connect with people, I strive to
+							create compelling visuals that resonate with
 							audiences and evoke emotions.
 						</StyledText>
 					</TextContainer>

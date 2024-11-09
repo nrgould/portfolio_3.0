@@ -10,6 +10,7 @@ const palette = {
 	mint: '#E1EFE6',
 
 	primYellow: '#EFCB68',
+	saffron: '#EAB934',
 
 	lightPink: '#f4cdd5',
 	lightBlue: '#e7f3fd',
@@ -60,7 +61,7 @@ export const COLORS = {
 
 	//primary / secondary
 	primary: palette.primYellow,
-	primarySoft: palette.lightPink,
+	primarySoft: palette.saffron,
 
 	secondary: palette.mint,
 	secondarySoft: palette.lightBlue,
@@ -82,7 +83,6 @@ export const COLORS = {
 	border: palette.lightGray,
 	shadow: palette.black,
 
-	
 	white: palette.white,
 };
 
