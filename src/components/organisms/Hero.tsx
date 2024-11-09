@@ -6,6 +6,8 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { motion, useInView } from 'framer-motion';
+import ButtonNavLink from '../atoms/ButtonNavLink';
+import { FaArrowRight } from 'react-icons/fa';
 
 const ImageContainer = styled.div`
 	background-color: ${COLORS.background};
@@ -113,6 +115,18 @@ export default function Hero() {
 						creating visuals that connect brands with audiences on a
 						deeper level
 					</StyledSubTitle>
+					<ButtonNavLink
+						to='#contact'
+						text="Work With Me"
+						primary
+						icon={
+							<FaArrowRight
+								color={COLORS.buttonTextBlack}
+								size={14}
+							/>
+						}
+					/>
+				
 				</TextContainer>
 			</div>
 		</ImageContainer>
