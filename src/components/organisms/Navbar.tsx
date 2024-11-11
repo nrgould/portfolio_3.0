@@ -69,7 +69,7 @@ const StyledTitle = styled(Title)`
 	color: ${COLORS.primary};
 	font-size: 1.3rem;
 	text-align: center;
-	z-index: 100;
+	z-index: 9;
 	position: absolute;
 	left: 50%;
 	top: 50%;

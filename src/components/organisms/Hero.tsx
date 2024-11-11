@@ -21,7 +21,8 @@ const TextContainer = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
+	margin-bottom: 8rem;
 `;
 
 const StyledTitle = styled(Title)`
@@ -75,9 +76,10 @@ export default function Hero() {
 				style={{
 					gridArea: '1/1',
 					position: 'relative',
-					placeItems: 'flex-end',
+					// placeItems: 'flex-end',
+					justifyItems: 'center',
 					display: 'grid',
-					marginBottom: '8rem',
+					// marginTop: '16rem',
 				}}
 			>
 				<TextContainer>
