@@ -32,7 +32,7 @@ const LogoContainer = styled.div`
 	margin-top: 1rem;
 
 	@media (max-width: 767px) {
-		margin: 0 1rem;
+		margin: 0 0.5rem;
 	}
 `;
 
@@ -70,7 +70,7 @@ export default function AnimatedTitlePage({ text }) {
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.2 }}
-					whileHover={{ scale: 1.03 }}
+					whileHover={{ scale: 1.05 }}
 				>
 					<StaticImage
 						src='../../images/logos/c2life.png'
@@ -78,26 +78,38 @@ export default function AnimatedTitlePage({ text }) {
 						height={75}
 					/>
 				</motion.div>
-				<motion.div
+				{/* <motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.6 }}
-					whileHover={{ scale: 1.03 }}
+					transition={{ duration: 0.5, delay: 0.4 }}
+					whileHover={{ scale: 1.05 }}
 				>
 					<StaticImage
 						src='../../images/logos/smartwool.png'
 						alt='Smartwool Logo'
 						height={75}
 					/>
-				</motion.div>
+				</motion.div> */}
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.4 }}
-					whileHover={{ scale: 1.03 }}
+					whileHover={{ scale: 1.05 }}
 				>
 					<StaticImage
 						src='../../images/logos/ravensbrew.png'
+						alt='Ravens Brew Coffee Logo'
+						height={75}
+					/>
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.6 }}
+					whileHover={{ scale: 1.05 }}
+				>
+					<StaticImage
+						src='../../images/logos/eightangles.png'
 						alt='Ravens Brew Coffee Logo'
 						height={75}
 					/>

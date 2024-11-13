@@ -117,10 +117,10 @@ export default function Prints() {
 					style={{ marginTop: 10, marginBottom: 10 }}
 				>
 					Explore my collection of limited edition fine art prints,
-					crafted with the highest quality materials to bring the
+					printed with premium Hahnemühle Photo Rag to bring the
 					beauty of nature into your space. Each piece is thoughtfully
 					curated and signed, ensuring a unique addition to your art
-					collection.
+					collection. Currently being featured in the Burke Arts Council.
 				</StyledText>
 				<motion.div
 					initial={{ opacity: 0, scale: 1, x: 10 }}
@@ -133,7 +133,7 @@ export default function Prints() {
 					style={{ marginTop: 10 }}
 				>
 					<Button
-						text='Shop Now'
+						text='View Prints'
 						primary
 						icon={
 							<FaArrowRight
