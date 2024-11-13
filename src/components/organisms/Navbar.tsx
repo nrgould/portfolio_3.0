@@ -146,7 +146,9 @@ export default function Navbar() {
 					justifyContent='center'
 					style={{ position: 'relative' }}
 				>
-					<StyledTitle>NICHOLAS GOULD</StyledTitle>
+					<NavLink to='#hero'>
+						<StyledTitle>NICHOLAS GOULD</StyledTitle>
+					</NavLink>
 					<Burger
 						isOpen={isOpen}
 						onClick={handleOpen}

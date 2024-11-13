@@ -82,7 +82,9 @@ const IndexPage = ({ data }) => {
 					></meta>
 				</Helmet>
 				<ScrollSnapContainer snapEnabled={snapEnabled}>
-					<Hero />
+					<div id='#hero'>
+						<Hero />
+					</div>
 					<About />
 					<div id='portfolio-section'>
 						<PortfolioImages data={data} />
