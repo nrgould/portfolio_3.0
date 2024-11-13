@@ -1,10 +1,6 @@
 import { Title } from '../atoms/Title';
-import {
-	motion,
-	useMotionValueEvent,
-	useScroll,
-	useTransform,
-} from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { StaticImage } from 'gatsby-plugin-image';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
@@ -14,16 +10,29 @@ const TitleContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 `;
 
 const StyledTitle = styled(Title)`
 	font-size: 5rem;
 	line-height: 5rem;
 	letter-spacing: 16px;
+	margin-bottom: 2rem;
 
 	@media (max-width: 767px) {
 		font-size: 2rem;
 		letter-spacing: 10px;
+	}
+`;
+
+const LogoContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1rem;
+
+	@media (max-width: 767px) {
+		margin: 0 1rem;
 	}
 `;
 
@@ -41,8 +50,6 @@ export default function AnimatedTitlePage({ text }) {
 		console.log('Page scroll: ', latest);
 	});
 
-	const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 1.5]);
-
 	return (
 		<TitleContainer ref={ref}>
 			<StyledTitle
@@ -56,6 +63,46 @@ export default function AnimatedTitlePage({ text }) {
 			>
 				{text}
 			</StyledTitle>
+
+			{/* Logo animations with staggered delay */}
+			<LogoContainer>
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.2 }}
+					whileHover={{ scale: 1.03 }}
+				>
+					<StaticImage
+						src='../../images/logos/c2life.png'
+						alt='C2Life Logo'
+						height={75}
+					/>
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.6 }}
+					whileHover={{ scale: 1.03 }}
+				>
+					<StaticImage
+						src='../../images/logos/smartwool.png'
+						alt='Smartwool Logo'
+						height={75}
+					/>
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.4 }}
+					whileHover={{ scale: 1.03 }}
+				>
+					<StaticImage
+						src='../../images/logos/ravensbrew.png'
+						alt='Ravens Brew Coffee Logo'
+						height={75}
+					/>
+				</motion.div>
+			</LogoContainer>
 		</TitleContainer>
 	);
 }

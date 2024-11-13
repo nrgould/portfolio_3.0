@@ -10,7 +10,8 @@ const Container = styled.div`
 	background-color: ${COLORS.background};
 	width: 100vw;
 	min-height: 100vh;
-	padding-top: 2.5rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 	scroll-snap-align: start;
 `;
 
