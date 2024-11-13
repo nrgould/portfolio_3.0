@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import '../index.css';
 import { graphql, type HeadFC } from 'gatsby';
@@ -63,8 +63,7 @@ const IndexPage = ({ data }) => {
 				<Helmet htmlAttributes={{ lang: 'en' }}>
 					<meta charSet='utf-8' />
 					<title data-react-helmet='true'>
-						Nicholas Gould | Brand Lifestyle Photographer &
-						Filmmaker
+						Nicholas Gould | Lifestyle Photographer
 					</title>
 					<link
 						rel='canonical'
@@ -78,7 +77,7 @@ const IndexPage = ({ data }) => {
 					<link rel='manifest' href='/manifest.json' />
 					<meta
 						name='description'
-						content='Photographer based out of Raleigh, North Carolina.'
+						content='Photographer based out of North Carolina.'
 					></meta>
 				</Helmet>
 				<ScrollSnapContainer snapEnabled={snapEnabled}>
