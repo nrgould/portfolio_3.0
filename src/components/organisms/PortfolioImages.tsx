@@ -55,17 +55,14 @@ export default function PortfolioImages({ data }) {
 	}, [data, category]);
 
 	return (
-		<>
-			<AnimatedTitlePage text='PHOTOGRAPHY' />
-			<Container id='images'>
-				<AnimatePresence>
-					<CategorySelector
-						category={category}
-						setCategory={setCategory}
-					/>
-					<ImageGrid data={filteredImages} />
-				</AnimatePresence>
-			</Container>
-		</>
+		<Container id='images'>
+			<AnimatePresence>
+				<CategorySelector
+					category={category}
+					setCategory={setCategory}
+				/>
+				<ImageGrid data={filteredImages} />
+			</AnimatePresence>
+		</Container>
 	);
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import '../index.css';
 import { graphql, type HeadFC } from 'gatsby';
@@ -12,6 +12,7 @@ import Contact from '../components/organisms/Contact';
 import Values from '../components/organisms/Values';
 import Footer from '../components/organisms/Footer';
 import Prints from '../components/organisms/Prints';
+import AnimatedTitlePage from '../components/organisms/AnimatedTitlePage';
 
 interface ScrollSnapContainerProps {
 	snapEnabled: boolean;
@@ -29,34 +30,39 @@ const ScrollSnapContainer = styled.div<ScrollSnapContainerProps>`
 
 const IndexPage = ({ data }) => {
 	const [snapEnabled, setSnapEnabled] = useState(true);
+	const observerRef = useRef<IntersectionObserver | null>(null);
 
 	useEffect(() => {
 		const portfolioSection = document.getElementById('portfolio-section');
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						setSnapEnabled(false);
-						console.log('Snapping disabled');
-					} else {
-						setSnapEnabled(true);
-						console.log('Snapping enabled');
-					}
-				});
-			},
-			{ threshold: 0.5 }
-		);
 
-		if (portfolioSection) {
-			observer.observe(portfolioSection);
+		if (!portfolioSection) {
+			console.error('Portfolio section not found');
+			return;
 		}
 
+		const observerCallback = ([entry]: IntersectionObserverEntry[]) => {
+			if (entry.isIntersecting) {
+				setSnapEnabled(false);
+				console.log('Snapping disabled');
+			} else {
+				setSnapEnabled(true);
+				console.log('Snapping enabled');
+			}
+		};
+
+		observerRef.current = new IntersectionObserver(observerCallback, {
+			threshold: 0.25,
+		});
+
+		observerRef.current.observe(portfolioSection);
+
 		return () => {
-			if (portfolioSection) {
-				observer.unobserve(portfolioSection);
+			if (observerRef.current) {
+				observerRef.current.disconnect();
 			}
 		};
 	}, []);
+
 	return (
 		<>
 			<Layout fullWidth>
@@ -85,6 +91,7 @@ const IndexPage = ({ data }) => {
 						<Hero />
 					</div>
 					<About />
+					<AnimatedTitlePage text='PHOTOGRAPHY' />
 					<div id='portfolio-section'>
 						<PortfolioImages data={data} />
 					</div>
