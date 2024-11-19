@@ -39,8 +39,6 @@ const LogoContainer = styled.div`
 export default function AnimatedTitlePage({ text }) {
 	const ref = useRef();
 
-	console.log(ref);
-
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		// offset: ['end end', 'start start'],
@@ -78,7 +76,7 @@ export default function AnimatedTitlePage({ text }) {
 						height={75}
 					/>
 				</motion.div>
-				{/* <motion.div
+				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5, delay: 0.4 }}
@@ -89,11 +87,11 @@ export default function AnimatedTitlePage({ text }) {
 						alt='Smartwool Logo'
 						height={75}
 					/>
-				</motion.div> */}
+				</motion.div>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.4 }}
+					transition={{ duration: 0.5, delay: 0.6 }}
 					whileHover={{ scale: 1.05 }}
 				>
 					<StaticImage
@@ -105,12 +103,12 @@ export default function AnimatedTitlePage({ text }) {
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.6 }}
+					transition={{ duration: 0.5, delay: 0.8 }}
 					whileHover={{ scale: 1.05 }}
 				>
 					<StaticImage
 						src='../../images/logos/eightangles.png'
-						alt='Ravens Brew Coffee Logo'
+						alt='Eight Angles Logo'
 						height={75}
 					/>
 				</motion.div>

@@ -17,10 +17,6 @@ export default function GridImage({ image, onClick }) {
 	const ref = useRef(null);
 	let inView = useInView(ref);
 
-	document.addEventListener('contextmenu', (e) => {
-		e.preventDefault();
-	});
-
 	const variants = {
 		hidden: { opacity: 0, y: 30 },
 		visible: {
@@ -50,7 +46,6 @@ export default function GridImage({ image, onClick }) {
 				<GatsbyImage
 					image={image.node.childImageSharp.gatsbyImageData}
 					alt={image.node.base.split('_').join(' ')}
-					onContextMenu={(e) => e.preventDefault()}
 				/>
 			</GridImageContainer>
 		</>

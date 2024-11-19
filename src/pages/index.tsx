@@ -64,7 +64,6 @@ const IndexPage = ({ data }) => {
 	}, []);
 
 	return (
-		<>
 			<Layout fullWidth>
 				<Helmet htmlAttributes={{ lang: 'en' }}>
 					<meta charSet='utf-8' />
@@ -101,7 +100,6 @@ const IndexPage = ({ data }) => {
 					<Footer />
 				</ScrollSnapContainer>
 			</Layout>
-		</>
 	);
 };
 
@@ -140,22 +138,3 @@ export const query = graphql`
 export default IndexPage;
 
 export const Head: HeadFC = () => <title>Home Page</title>;
-
-// query HomePageQuery {
-// 	allFile(filter: { sourceInstanceName: { eq: "images" } }, limit: 18) {
-// 		edges {
-// 			node {
-// 				childImageSharp {
-// 					gatsbyImageData(
-// 						layout: CONSTRAINED
-// 						placeholder: BLURRED
-// 						transformOptions: {
-// 							fit: COVER
-// 							cropFocus: ATTENTION
-// 						}
-// 					)
-// 				}
-// 			}
-// 		}
-// 	}
-// }
