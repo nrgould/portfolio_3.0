@@ -43,10 +43,10 @@ const IndexPage = ({ data }) => {
 		const observerCallback = ([entry]: IntersectionObserverEntry[]) => {
 			if (entry.isIntersecting) {
 				setSnapEnabled(false);
-				console.log('Snapping disabled');
+				// console.log('Snapping disabled');
 			} else {
 				setSnapEnabled(true);
-				console.log('Snapping enabled');
+				// console.log('Snapping enabled');
 			}
 		};
 
@@ -64,7 +64,7 @@ const IndexPage = ({ data }) => {
 	}, []);
 
 	return (
-			<Layout fullWidth>
+			<Layout fullWidth hideLogo={!snapEnabled}>
 				<Helmet htmlAttributes={{ lang: 'en' }}>
 					<meta charSet='utf-8' />
 					<title data-react-helmet='true'>
@@ -106,7 +106,7 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
 	query HomePageQuery {
 		portfolioPhotos: allFile(
-			filter: {
+			filter: {   
 				extension: { regex: "/(jpg)|(png)|(jpeg)/" }
 				relativeDirectory: { eq: "optimized_images" }
 			}

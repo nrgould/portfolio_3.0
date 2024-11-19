@@ -7,7 +7,6 @@ import { COLORS, breakpoint } from '../../theme';
 import FlexColumn from '../atoms/FlexColumn';
 import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 import { Link } from 'gatsby';
-import { Title } from '../atoms/Title';
 
 const Container = styled(motion.nav)`
 	position: absolute;
@@ -63,7 +62,7 @@ const NavLink = styled(Link)`
 	}
 `;
 
-const StyledTitle = styled(Title)`
+const StyledTitle = styled(motion.div)`
 	padding: 0;
 	margin: 0;
 	color: ${COLORS.primary};
@@ -76,7 +75,7 @@ const StyledTitle = styled(Title)`
 	transform: translate(-50%, -40%);
 
 	@media (max-width: 767px) {
-		transform: translate(-50%, -45%);
+		transform: translate(-50%, 60%);
 		font-size: 1rem;
 	}
 `;
@@ -87,7 +86,7 @@ const Drawer = styled(motion.div)<{ isOpen: boolean }>`
 	height: 100vh;
 	position: fixed;
 	top: 0;
-	z-index: 10;
+	z-index: 5;
 	display: ${(p) => (p.isOpen ? 'block' : 'none')};
 
 	@media (max-width: 767px) {
@@ -110,10 +109,12 @@ const Backdrop = styled(motion.div)`
 const DRAWER_OPEN_FACTOR_DESKTOP = 3.8 / 3;
 const DRAWER_OPEN_FACTOR_MOBILE = 3;
 
-export default function Navbar() {
+export default function Navbar({ hideLogo }: { hideLogo: boolean }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const { width } = useWindowDimensions();
+
+	console.log(hideLogo);
 
 	let drawerOpenFactor = DRAWER_OPEN_FACTOR_DESKTOP;
 	let drawerOpenDist = width;
@@ -144,11 +145,30 @@ export default function Navbar() {
 				<FlexRow
 					alignItems='center'
 					justifyContent='center'
-					style={{ position: 'relative' }}
+					style={{ position: 'relative', width: '100%' }}
 				>
-					<NavLink to='#hero'>
-						<StyledTitle>NICHOLAS GOULD</StyledTitle>
-					</NavLink>
+					<AnimatePresence mode='wait'>
+						{!hideLogo && !isOpen && (
+							<NavLink
+								to='#hero'
+								style={{
+									position: 'absolute',
+									left: '50%',
+									transform: 'translateX(-50%)',
+									zIndex: 4,
+								}}
+							>
+								<StyledTitle
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									exit={{ opacity: 0 }}
+									transition={{ duration: 0.5 }}
+								>
+									NICHOLAS GOULD
+								</StyledTitle>
+							</NavLink>
+						)}
+					</AnimatePresence>
 					<Burger
 						isOpen={isOpen}
 						onClick={handleOpen}
@@ -158,6 +178,7 @@ export default function Navbar() {
 							stiffness: 260,
 							damping: 20,
 						}}
+						style={{ position: 'relative', zIndex: 6 }}
 					/>
 				</FlexRow>
 			</Container>

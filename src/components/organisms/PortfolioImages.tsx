@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 import { COLORS } from '../../theme';
 import CategorySelector from '../molecules/CategorySelector';
-import AnimatedTitlePage from './AnimatedTitlePage';
 
 const Container = styled.div`
 	background-color: ${COLORS.background};

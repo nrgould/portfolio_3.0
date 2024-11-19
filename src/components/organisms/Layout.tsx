@@ -8,6 +8,7 @@ interface Props {
 	fullWidth?: boolean;
 	bottomMargin?: boolean;
 	ref?: any;
+	hideLogo?: boolean;
 }
 
 export default function Layout({
@@ -15,10 +16,11 @@ export default function Layout({
 	bottomMargin,
 	fullWidth,
 	ref,
+	hideLogo,
 }: Props) {
 	return (
 		<>
-			<Navbar />
+			<Navbar hideLogo={hideLogo} />
 			<Main
 				ref={ref}
 				style={{
