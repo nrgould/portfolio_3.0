@@ -72,7 +72,7 @@ const StyledTitle = styled(motion.div)`
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -40%);
+	transform: translate(-50%);
 
 	@media (max-width: 767px) {
 		transform: translate(-50%, 60%);
@@ -139,6 +139,7 @@ export default function Navbar({ hideLogo }: { hideLogo: boolean }) {
 		setIsOpen(isOpen ? false : true);
 		document.body.style.overflow = isOpen ? 'unset' : 'hidden';
 	}
+
 	return (
 		<>
 			<Container>
@@ -148,7 +149,7 @@ export default function Navbar({ hideLogo }: { hideLogo: boolean }) {
 					style={{ position: 'relative', width: '100%' }}
 				>
 					<AnimatePresence mode='wait'>
-						{!hideLogo && !isOpen && (
+						{!hideLogo && (
 							<NavLink
 								to='#hero'
 								style={{
