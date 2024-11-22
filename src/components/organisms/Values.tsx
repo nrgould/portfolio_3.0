@@ -7,14 +7,13 @@ import { motion } from 'framer-motion';
 import { Text } from '../atoms/Text';
 import { Link } from 'gatsby';
 
-const Container = styled.div`
+const Container = styled.section`
 	height: 100vh;
 	width: 100vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	scroll-snap-align: start;
 `;
 
 const TextContainer = styled.div`
@@ -71,7 +70,8 @@ export default function Values() {
 						whileInView={'visible'}
 						whileHover={{ scale: 1.03 }}
 						initial={'hidden'}
-						variants={variants}>
+						variants={variants}
+					>
 						CREATIVE VISION
 					</StyledSubtitle>
 				</StyledLink>
@@ -81,7 +81,8 @@ export default function Values() {
 						whileInView={'visible'}
 						whileHover={{ scale: 1.03 }}
 						initial={'hidden'}
-						variants={variants}>
+						variants={variants}
+					>
 						MISSION-DRIVEN
 					</StyledSubtitle>
 				</StyledLink>
@@ -91,7 +92,8 @@ export default function Values() {
 						whileInView={'visible'}
 						whileHover={{ scale: 1.03 }}
 						initial={'hidden'}
-						variants={variants}>
+						variants={variants}
+					>
 						EFFICIENCY
 					</StyledSubtitle>
 				</StyledLink>
@@ -103,7 +105,8 @@ export default function Values() {
 						as={motion.p}
 						variants={variants}
 						whileInView={'visible'}
-						initial={'hidden'}>
+						initial={'hidden'}
+					>
 						Find the equilibrium between artistic vision and
 						marketability
 					</StyledText>
@@ -116,7 +119,8 @@ export default function Values() {
 						as={motion.p}
 						variants={variants}
 						whileInView={'visible'}
-						initial={'hidden'}>
+						initial={'hidden'}
+					>
 						Work with people & brands that are passionate about
 						doing good
 					</StyledText>
@@ -129,7 +133,8 @@ export default function Values() {
 						as={motion.p}
 						variants={variants}
 						whileInView={'visible'}
-						initial={'hidden'}>
+						initial={'hidden'}
+					>
 						Artistic precision to deliver effective work in a timely
 						manner
 					</StyledText>

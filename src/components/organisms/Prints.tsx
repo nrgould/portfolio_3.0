@@ -8,7 +8,7 @@ import Button from '../atoms/Button';
 import { FaArrowRight } from 'react-icons/fa';
 import { COLORS } from '../../theme';
 
-const Container = styled.div`
+const Container = styled.section`
 	height: 100vh;
 	width: 100vw;
 	display: flex;

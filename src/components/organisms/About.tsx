@@ -6,7 +6,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { Text } from '../atoms/Text';
 import FlexColumn from '../atoms/FlexColumn';
 
-const Container = styled.div`
+const Container = styled.section`
 	height: 100vh;
 	display: flex;
 	width: 100vw;

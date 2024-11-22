@@ -26,6 +26,12 @@ const ScrollSnapContainer = styled.div<ScrollSnapContainerProps>`
 	scroll-snap-type: ${({ snapEnabled }) =>
 		snapEnabled ? 'y mandatory' : 'none'};
 	scroll-behavior: smooth;
+	
+	& > section {
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+
+	}
 `;
 
 const IndexPage = ({ data }) => {
@@ -86,14 +92,14 @@ const IndexPage = ({ data }) => {
 					></meta>
 				</Helmet>
 				<ScrollSnapContainer snapEnabled={snapEnabled}>
-					<div id='#hero'>
+					<section id='#hero'>
 						<Hero />
-					</div>
+					</section>
 					<About />
 					<AnimatedTitlePage text='PHOTOGRAPHY' />
-					<div id='portfolio-section'>
+					<section id='portfolio-section'>
 						<PortfolioImages data={data} />
-					</div>
+					</section>
 					<Values />
 					<Prints />
 					<Contact />

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import ContactForm from '../molecules/ContactForm';
 
-const Container = styled.div`
+const Container = styled.section`
 	height: 100vh;
 	width: 100vw;
 	display: flex;

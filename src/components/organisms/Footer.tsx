@@ -8,7 +8,7 @@ import { Title } from '../atoms/Title';
 import { Text } from '../atoms/Text';
 import '@fontsource/josefin-sans';
 
-const Container = styled(motion.div)`
+const Container = styled(motion.section)`
 	width: 100%;
 	height: 100vh;
 	scroll-snap-align: start;

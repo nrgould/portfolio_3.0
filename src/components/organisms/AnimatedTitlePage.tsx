@@ -4,8 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-const TitleContainer = styled.div`
-	scroll-snap-align: start;
+const TitleContainer = styled.section`
 	height: 100vh;
 	display: flex;
 	align-items: center;
