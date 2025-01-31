@@ -121,7 +121,7 @@ export default function Prints() {
 					printed with premium Hahnemühle Photo Rag to bring the
 					beauty of nature into your space. Each piece is thoughtfully
 					curated and signed, ensuring a unique addition to your art
-					collection. Currently being featured in the Burke Arts
+					collection. Currently only being featured in the Burke Arts
 					Council.
 				</StyledText>
 				<motion.div
@@ -135,7 +135,7 @@ export default function Prints() {
 					style={{ marginTop: 10 }}
 				>
 					<Button
-						text='View Prints'
+						text='Contact for Inquiries'
 						primary
 						icon={
 							<FaArrowRight
@@ -146,7 +146,7 @@ export default function Prints() {
 						style={{ color: COLORS.buttonTextBlack }}
 						onClick={() =>
 							window.open(
-								'https://studio.nicholasgouldphoto.com',
+								'mailto:hello@nicholasgouldphoto.com?subject=Fine%20Art%20Print%20Inquiry&body=Hello%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20fine%20art%20prints.',
 								'_blank',
 								'noopener,noreferrer'
 							)
