@@ -121,8 +121,7 @@ export default function Prints() {
 					printed with premium Hahnemühle Photo Rag to bring the
 					beauty of nature into your space. Each piece is thoughtfully
 					curated and signed, ensuring a unique addition to your art
-					collection. Currently only being featured in the Burke Arts
-					Council.
+					collection.
 				</StyledText>
 				<motion.div
 					initial={{ opacity: 0, scale: 1, x: 10 }}

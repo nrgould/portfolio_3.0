@@ -23,8 +23,8 @@ const ScrollSnapContainer = styled.div<ScrollSnapContainerProps>`
 	max-width: 100vw;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	scroll-snap-type: ${({ snapEnabled }) =>
-		snapEnabled ? 'y mandatory' : 'none'};
+	/* scroll-snap-type: ${({ snapEnabled }) =>
+		snapEnabled ? 'y mandatory' : 'none'}; */
 	scroll-behavior: smooth;
 	
 	& > section {

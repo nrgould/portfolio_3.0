@@ -41,6 +41,19 @@ const StyledText = styled(Text)`
 	}
 `;
 
+// New styled component for the "Featured in The Paper" section
+const FeaturedSection = styled.div`
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+`;
+
 export default function About() {
 	const variants = {
 		hidden: {
@@ -93,16 +106,65 @@ export default function About() {
 							variants={variants}
 							transition={{ delay: 0.5 }}
 						>
-							As a lifestyle photographer with a passion for the
-							outdoors and traveling, I help clients establish
-							greater emotional appeal to their brands through
-							capturing authentic moments between people and
-							product. With a deep appreciation for nature and an
-							innate ability to connect with people, I strive to
-							create compelling visuals that resonate with
-							audiences and evoke emotions.
+							I’m a lifestyle photographer focused on creating
+							honest, engaging images for both brands and
+							individuals. Whether shooting portraits or capturing
+							product experiences in a unique setting, my aim is
+							to tell real stories that resonate. By blending a
+							relaxed approach with careful attention to detail, I
+							deliver visuals that help my clients connect with
+							their audience on a genuine level.
 						</StyledText>
 					</TextContainer>
+					{/* New "Featured in The Paper" Section */}
+					<FeaturedSection>
+						<a
+							href='https://www.thepaper.media/news/goulds-landscape-photography-combines-creativity-love-of-outdoors/article_fab87202-bbdf-11ef-b0ff-4f52004d46e9.html'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<Title
+								as={motion.h3}
+								whileInView={'visible'}
+								initial={'hidden'}
+								variants={variants}
+								style={{
+									marginTop: '1rem',
+									marginBottom: '0',
+									fontSize: '1rem',
+									textAlign: 'center',
+								}}
+							>
+								Featured in
+							</Title>
+							<div
+								style={{
+									marginTop: '0.5rem',
+									display: 'flex',
+									gap: '1rem',
+								}}
+							>
+								<StaticImage
+									src='../../images/logos/thepaper.png'
+									alt='The Paper logo'
+									width={200}
+									height={50}
+									imgStyle={{
+										objectFit: 'contain',
+									}}
+								/>
+								<StaticImage
+									src='../../images/logos/BACLogo.jpg'
+									alt='Burke Arts Council Logo'
+									width={45}
+									height={50}
+									// imgStyle={{
+									// 	objectFit: 'contain',
+									// }}
+								/>
+							</div>
+						</a>
+					</FeaturedSection>
 				</FlexColumn>
 			</Container>
 		</>
